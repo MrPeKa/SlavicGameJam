@@ -7,11 +7,30 @@ namespace Assets.Scripts.Gameplay
 {
     public class GenerateLevel : MonoBehaviour
     {
+        [Tooltip("List of rooms the level will be composed of.")]
         public GameObject[] Rooms;
 
-        public List<GameObject> GetRooms()
+        public bool VerticalLevel;
+        public int MinDistanceBetweenRooms;
+        public int MaxDistanceBetweenRooms;
+
+
+        private IRoomsManager _roomsManager;
+
+        void Start()
         {
-            if (Rooms == null || Rooms.Length < 1)
+            _roomsManager = GameplayServices.RoomsManager;
+            _roomsManager.Reset();
+
+            if (VerticalLevel)
+                _roomsManager.GenerateLevelVertically(GetRooms(), MinDistanceBetweenRooms, MaxDistanceBetweenRooms);
+            else
+                _roomsManager.GenerateLevelHorizontally(GetRooms(), MinDistanceBetweenRooms, MaxDistanceBetweenRooms);
+        }
+        
+        private List<GameObject> GetRooms()
+        {
+            if (Rooms == null || !Rooms.Any())
             {
                 Debug.LogError("[RoomsList] At least one room must be selected!");
                 throw new InvalidOperationException();
