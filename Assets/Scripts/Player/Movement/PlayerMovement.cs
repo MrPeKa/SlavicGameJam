@@ -2,7 +2,7 @@
 using System.Collections;
 using Assets.Scripts.Utilities;
 
-namespace Assets.Scripts.Movement
+namespace Assets.Scripts.Player.Movement
 {
     public class PlayerMovement : MonoBehaviour
     {
