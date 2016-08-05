@@ -16,7 +16,7 @@ namespace Assets.Scripts.Movement
 
         void Start()
         {
-            rb = DevHelper.RequireNotNull(GetComponent<Rigidbody2D>());
+            rb = GetComponent<Rigidbody2D>();
         }
 
         void Update()
