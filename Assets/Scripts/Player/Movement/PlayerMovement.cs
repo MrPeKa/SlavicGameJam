@@ -13,6 +13,7 @@ namespace Assets.Scripts.Player.Movement
 
         private Rigidbody2D rb;
         private float lastXSpeed, lastYSpeed;
+        private bool facingRight = true;
 
         void Start()
         {
@@ -31,6 +32,14 @@ namespace Assets.Scripts.Player.Movement
             return Input.GetAxis(axisName) * playerSpeed;
         }
 
+        private void Flip()
+        {
+            var localScale = transform.localScale;
+            facingRight = !facingRight;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
+
         private void HandleMovement()
         {
             var newXSpeed = GetSpeedForAxis(HORIZONTAL_AXIS_NAME);
@@ -42,6 +51,9 @@ namespace Assets.Scripts.Player.Movement
         private void OnMove(float newXSpeed, float newYSpeed)
         {
             rb.velocity = new Vector2(newXSpeed, newYSpeed);
+
+            if ((newXSpeed > 0 && !facingRight) || (newXSpeed < 0 && facingRight))
+                Flip();
         }
                 
 
