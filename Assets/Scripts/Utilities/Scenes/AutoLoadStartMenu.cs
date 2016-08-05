@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Utilities.Scenes
 {
@@ -6,7 +7,10 @@ namespace Assets.Scripts.Utilities.Scenes
     {
         void Update()
         {
-            DevHelper.LevelLoader.GoToStartMenu();
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+                DevHelper.LevelLoader.GoToStartMenu();
+            else
+                gameObject.SetActive(false);
         }
     }
 }
