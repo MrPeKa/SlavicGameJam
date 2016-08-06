@@ -173,8 +173,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 354386216}
   - 212: {fileID: 354386215}
-  - 114: {fileID: 354386218}
   - 61: {fileID: 354386217}
+  - 114: {fileID: 354386218}
   m_Layer: 0
   m_Name: Room1
   m_TagString: Untagged
@@ -250,12 +250,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 354386214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90cb1b471ec308b449861154bbb27f5b, type: 3}
+  m_Script: {fileID: 11500000, guid: fb311374192c524428104359f1a4bfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToBeCenteredOn: {fileID: 354386214}
   cameraObject: {fileID: 1056687192}
-  cameraSize: 6
+  triggerSource: {fileID: 2069285533}
+  cameraSize: 4
+  scaleDuration: 0.33
 --- !u!1 &361539518
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +512,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -547,8 +548,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1985213134}
   - 212: {fileID: 1985213133}
-  - 114: {fileID: 1985213136}
   - 61: {fileID: 1985213135}
+  - 114: {fileID: 1985213136}
   m_Layer: 0
   m_Name: Room2
   m_TagString: Untagged
@@ -624,12 +625,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1985213132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90cb1b471ec308b449861154bbb27f5b, type: 3}
+  m_Script: {fileID: 11500000, guid: fb311374192c524428104359f1a4bfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToBeCenteredOn: {fileID: 1985213132}
   cameraObject: {fileID: 1056687192}
-  cameraSize: 6
+  triggerSource: {fileID: 2069285533}
+  cameraSize: 4
+  scaleDuration: 0.33
 --- !u!1 &2054399530
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
+  playerInfo: {fileID: 0}
+  playerDetection: {fileID: 0}
 --- !u!50 &2069285537
 Rigidbody2D:
   serializedVersion: 2
