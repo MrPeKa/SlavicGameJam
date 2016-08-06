@@ -22,10 +22,10 @@ namespace Assets.Scripts.Player.PlayerManagement
         {
             ListOflooks = new List<TypeOfCharacter>();
             Animator = gameObject.GetComponent<Animator>();
-            foreach (var character in Characters)    
-            {
-                ListOflooks.Add(character.GetComponent<TypeOfCharacter>());
-            }
+//            foreach (var character in Characters)    
+//            {
+//                ListOflooks.Add(character.GetComponent<TypeOfCharacter>());
+//            }
         }
 
         void Update()

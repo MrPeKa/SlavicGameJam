@@ -20,13 +20,14 @@ namespace Assets.Scripts.Camera
         void OnTriggerEnter2D(Collider2D collider)
         {
             //Debug.Log("Triggered");
+
             var collidingObj = collider.gameObject;
+            if (collidingObj.CompareTag(triggerSource.tag))
             {
                 var camera = cameraObject.GetComponent<UnityEngine.Camera>();
                 previousCameraSize = camera.orthographicSize;
                 currentScaling = StartCoroutine(SmoothCameraSizeChangeCoroutine(camera, scaleDuration, CloseCameraSize));
             }
-
         }
 
         void OnTriggerExit2D(Collider2D collider)
