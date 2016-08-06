@@ -24,11 +24,8 @@ namespace Assets.Scripts.Camera
 
             previousOwner = cameraObject.transform.parent;
             cameraObject.transform.parent = null;
-            //cameraObject.transform.rotation = Quaternion.Euler(Vector3.zero);
 
             var cam = cameraObject.GetComponent<UnityEngine.Camera>();
-            //cam.transform.LookAt(objectToBeCenteredOn.transform);
-            //cameraObject.transform.parent = objectToBeCenteredOn.transform;
             cameraObject.transform.position = Vector3.zero;
             cameraObject.transform.Translate(objectToBeCenteredOn.transform.position, Space.World);
 
@@ -42,7 +39,6 @@ namespace Assets.Scripts.Camera
         void OnTriggerExit2D(Collider2D collider)
         {
             cameraObject.transform.parent = previousOwner;
-            //cameraObject.transform.LookAt(previousOwner.transform);
             cameraObject.transform.localPosition = Vector3.zero;
 
             var cam = cameraObject.GetComponent<UnityEngine.Camera>();
