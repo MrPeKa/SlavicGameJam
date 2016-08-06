@@ -103,8 +103,11 @@ namespace Assets.Scripts.Player.Movement
             {
                 foreach (GameObject opponent in playerDetection.ListOfOpponentsInRange)
                 {
-                    var npcInfo = opponent.GetComponent<NPCInfo>();
-                    npcInfo.GetDamage(playerInfo.Damage);
+                    if (playerDetection.ListOfOpponentsInRange.Contains(opponent))
+                    {
+                        var npcInfo = opponent.GetComponent<NPCInfo>();
+                        npcInfo.GetDamage(playerInfo.Damage);
+                    }
                 }
             }
         }

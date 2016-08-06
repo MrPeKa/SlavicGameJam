@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Player.PlayerManagement
@@ -7,6 +8,12 @@ namespace Assets.Scripts.Player.PlayerManagement
 
         public bool OpponentInRange;
         public List<GameObject> ListOfOpponentsInRange;
+
+        void Update()
+        {
+            if (ListOfOpponentsInRange.Count > 0)
+                ListOfOpponentsInRange = ListOfOpponentsInRange.Where(item => item != null).ToList();
+        }
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -25,6 +32,7 @@ namespace Assets.Scripts.Player.PlayerManagement
                 OpponentInRange = false;
             }
         }
+
 
     }
 }
