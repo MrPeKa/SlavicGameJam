@@ -30,9 +30,9 @@ namespace Assets.Scripts.Camera
             cameraObject.transform.Translate(objectToBeCenteredOn.transform.position, Space.World);
 
             previousCameraSize = cam.orthographicSize;
-            cam.orthographicSize = cameraSize;
+            //cam.orthographicSize = cameraSize;
             //StartCoroutine(SmoothCameraPositionChangeCoroutine(cam, .5f, cameraObject.transform, objectToBeCenteredOn.transform));
-            //StartCoroutine(SmoothCameraSizeChangeCoroutine(cam, .5f, cameraSize));
+            StartCoroutine(SmoothCameraSizeChangeCoroutine(cam, .25f, cameraSize));
 
         }
 
