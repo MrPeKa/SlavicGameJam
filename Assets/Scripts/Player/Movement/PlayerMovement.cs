@@ -2,7 +2,7 @@
 using UnityEngine;
 
 using Assets.Scripts.Player.PlayerManagement;
-
+using System;
 
 namespace Assets.Scripts.Player.Movement
 {
@@ -11,22 +11,60 @@ namespace Assets.Scripts.Player.Movement
         public const string HORIZONTAL_AXIS_NAME = "Horizontal";
         public const string VERTICAL_AXIS_NAME = "Vertical";
         public const string ATTACK_BUTTON = "Fire1";
+
+        public const string ANIM_PARAM_MOVING = "Moving";
+        public const string ANIM_PARAM_ATTACKING = "Attacking";
+        public const string ANIM_PARAM_HORIZONTAL_SPEED = "HorizontalSpeed";
+        public const string ANIM_PARAM_VERTICAL_SPEED = "VerticalSpeed";
+        public const string ANIM_PARAM_LAST_HORIZONTAL_SPEED = "LastHorizontalSpeed";
+        public const string ANIM_PARAM_LAST_VERTICAL_SPEED = "LastVerticalSpeed";
+
         public float playerSpeed;
         public bool isSlowed;
-
         public PlayerInfo playerInfo;
         public PlayerDetectsOpponents playerDetection;
 
         private Rigidbody2D rb;
+        private Animator animator;
         private float lastXSpeed, lastYSpeed;
-        private bool facingRight = true;
-        private bool facingTop = false;
+        private bool facingRight;
+        private bool facingTop;
+        private bool moving = false;
+        private bool attacking = false;
+
+        bool Moving
+        {
+            get
+            {
+                return moving;
+            }
+            set
+            {
+                moving = value;
+                animator.SetBool(ANIM_PARAM_MOVING, value);
+            }
+        }
+
+        bool Attacking
+        {
+            get
+            {
+                return attacking;
+            }
+            set
+            {
+                attacking = value;
+                animator.SetBool(ANIM_PARAM_ATTACKING, value);
+            }
+        }
+
 
         void Start()
         {
             playerDetection = GetComponentInChildren<PlayerDetectsOpponents>();
             playerInfo = GetComponent<PlayerInfo>();
             rb = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -41,34 +79,6 @@ namespace Assets.Scripts.Player.Movement
             return Input.GetAxis(axisName) * playerSpeed;
         }
 
-        private void FlipRight()
-        {
-            facingTop = false;
-            facingRight = true;
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-
-        private void FlipLeft()
-        {
-            facingTop = true;
-            facingRight = false;
-            transform.eulerAngles = new Vector3(0, 0, 180);
-        }
-
-        private void FlipUp()
-        {
-            facingTop = true;
-            facingRight = true;
-            transform.eulerAngles = new Vector3(0, 0, 90);
-        }
-
-        private void FlipDown()
-        {
-            facingTop = false;
-            facingRight = false;
-            transform.eulerAngles = new Vector3(0, 0, 270);
-        }
-
         private void HandleMovement()
         {
             var newXSpeed = GetSpeedForAxis(HORIZONTAL_AXIS_NAME);
@@ -79,16 +89,22 @@ namespace Assets.Scripts.Player.Movement
 
         private void OnMove(float newXSpeed, float newYSpeed)
         {
-            rb.velocity = new Vector2(newXSpeed, newYSpeed);
+            var lastVelocity = rb.velocity;
 
-            if(newYSpeed>0)
-                FlipUp();
-            if(newYSpeed<0)
-                FlipDown();
-            if(newXSpeed>0)
-                FlipRight();
-            if(newXSpeed<0)
-                FlipLeft();
+            if (lastVelocity.magnitude != 0)
+            {
+                animator.SetFloat(ANIM_PARAM_LAST_HORIZONTAL_SPEED, lastVelocity.x);
+                animator.SetFloat(ANIM_PARAM_LAST_VERTICAL_SPEED, lastVelocity.y);
+            }
+
+            var currentVelocity = new Vector2(newXSpeed, newYSpeed);
+            animator.SetFloat(ANIM_PARAM_HORIZONTAL_SPEED, newXSpeed);
+            animator.SetFloat(ANIM_PARAM_VERTICAL_SPEED, newYSpeed);
+
+            Moving = (currentVelocity.magnitude != 0);
+            rb.velocity = currentVelocity;
+
+
         }
                 
         private void HandleAttack()
@@ -99,6 +115,8 @@ namespace Assets.Scripts.Player.Movement
 
         private void OnAttack()
         {
+            StopPlayer();
+
             if (playerInfo.IsMelee && playerDetection.OpponentInRange)
             {
                 foreach (GameObject opponent in playerDetection.ListOfOpponentsInRange)
@@ -110,6 +128,14 @@ namespace Assets.Scripts.Player.Movement
                     }
                 }
             }
+
+            animator.SetTrigger(ANIM_PARAM_ATTACKING);
+        }
+
+        private void StopPlayer()
+        {
+            rb.velocity = Vector2.zero;
+            Moving = false;
         }
     }
 }
