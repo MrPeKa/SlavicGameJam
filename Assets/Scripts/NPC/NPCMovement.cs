@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics;
-using System.Net.Sockets;
-using System.Threading;
 using Assets.Scripts.Gameplay;
 using Assets.Scripts.Player.PlayerManagement;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.NPC
@@ -17,6 +15,8 @@ namespace Assets.Scripts.NPC
         [SerializeField] public bool FreeTraversing = true;
         [SerializeField] public GameObject TargetToAttack;
         [SerializeField] public bool Targeting;
+
+        public bool SelfAnimating;
 
         public NPCInfo npcInfo;
 
@@ -40,10 +40,9 @@ namespace Assets.Scripts.NPC
             _cooldownTime.Reset();
             npcInfo = gameObject.GetComponent<NPCInfo>();
             TargetToAttack = GameObject.FindWithTag("Player");
-            StartCoroutine(CheckDirection());
+            StartCoroutine(CheckDirectionCoroutine());
             ResetTarget();
         }
-
 
         void Update()
         {
@@ -51,6 +50,7 @@ namespace Assets.Scripts.NPC
                 Move();
             if (!FreeTraversing)
             {
+                CheckDirectionInTargeting();
                 MoveToTheTarget(TargetToAttack);
                 if (IsFightingMelee)
                 {
@@ -64,8 +64,19 @@ namespace Assets.Scripts.NPC
                         _cooldownTime.Reset();
                 }
             }
+
+            if (npcInfo.HealthPoints <= 0)
+                Dying();
         }
 
+        //APPLY MUSIC OF DYING
+        private void Dying()
+        {
+            Debug.Log("Object destroyed" + this);
+            Destroy(gameObject,1);
+        }
+
+        //APPLY MUSIC OF MOVING NPC
         private void Move()
         {
             var newX = transform.position.x + _directionX*Speed;
@@ -73,6 +84,7 @@ namespace Assets.Scripts.NPC
             transform.position = new Vector2(newX, newY);
         }
 
+        //APPLY MUSIC OF MOVING NPC
         private void MoveToTheTarget(GameObject target)
         {
             if (!Targeting)
@@ -105,6 +117,7 @@ namespace Assets.Scripts.NPC
             }
         }
 
+        //APPLY MUSIC ATTACT OF NPC
         void AttactMelee(GameObject target)
         {
             PlayerInfo player = target.GetComponent<PlayerInfo>();
@@ -119,7 +132,7 @@ namespace Assets.Scripts.NPC
             _journeyLength = 0;
         }
 
-        IEnumerator CheckDirection()
+        IEnumerator CheckDirectionCoroutine()
         {
             var time = Random.Range(3, 6);
             while (!Targeting)
@@ -129,7 +142,7 @@ namespace Assets.Scripts.NPC
             }
         }
 
-        public Vector2 ChangeDirection()
+        public void ChangeDirection()
         {
             int newDirectX;
             int newDirectY;
@@ -144,6 +157,12 @@ namespace Assets.Scripts.NPC
             _directionY = newDirectY;
             _isChangingDirection = false;
 
+            if (SelfAnimating)
+            {
+
+                return;
+            }
+                
             if(_directionY>0)
                 FlipUp();
             if(_directionX>0)
@@ -152,7 +171,24 @@ namespace Assets.Scripts.NPC
                 FlipLeft();
             if(_directionY<0)
                 FlipDown();
-            return new Vector2(_directionX,_directionY);
+        }
+
+        private void CheckDirectionInTargeting()
+        {
+            var direct = transform.position - TargetToAttack.transform.position;
+            if (Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0)
+            {
+                if (direct.x > 0)
+                    FlipLeft();
+                else
+                    FlipRight();
+            }
+            else if (direct.y < 0)
+                FlipUp();
+            else
+                FlipDown();
+
+
         }
 
         private void FlipRight()
