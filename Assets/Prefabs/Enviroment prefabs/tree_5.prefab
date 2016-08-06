@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000013680476688}
   - 212: {fileID: 212000012802024218}
   - 61: {fileID: 61000010002481248}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tree_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

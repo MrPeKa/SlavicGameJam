@@ -1020,6 +1020,11 @@ Prefab:
       propertyPath: m_Name
       value: NPC (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010745866362, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}
   m_IsPrefabParent: 0
@@ -1438,8 +1443,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1631866063}
-  m_RootOrder: 5
+  m_Father: {fileID: 855645908}
+  m_RootOrder: 2
 --- !u!108 &108371292
 Light:
   m_ObjectHideFlags: 0
@@ -5748,7 +5753,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 665539872}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &458499052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7779,6 +7784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 1329518089}
   CorridorsToActivate: {fileID: 481500454}
   CorridorsToDeactivate: {fileID: 1421028648}
   ActivateRoom: 1
@@ -8052,8 +8058,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 855645908}
   - {fileID: 1631866063}
-  - {fileID: 665539872}
   - {fileID: 378029171}
   - {fileID: 1437535129}
   - {fileID: 1862797845}
@@ -8265,17 +8271,16 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830687383}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 142248681}
-  - {fileID: 2071227239}
   - {fileID: 458499051}
   - {fileID: 1631512371}
-  m_Father: {fileID: 652228591}
-  m_RootOrder: 1
+  m_Father: {fileID: 855645908}
+  m_RootOrder: 0
 --- !u!1001 &678157839
 Prefab:
   m_ObjectHideFlags: 0
@@ -9100,7 +9105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &743554901
 Transform:
   m_ObjectHideFlags: 0
@@ -10624,6 +10629,37 @@ BoxCollider2D:
   m_Offset: {x: -4.3593836, y: -0.00263381}
   serializedVersion: 2
   m_Size: {x: 1.5138392, y: 5.7784495}
+--- !u!1 &855645907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 855645908}
+  m_Layer: 0
+  m_Name: ROOM 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &855645908
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855645907}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 665539872}
+  - {fileID: 2071227239}
+  - {fileID: 108371291}
+  m_Father: {fileID: 652228591}
+  m_RootOrder: 0
 --- !u!4 &856285215 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010177427310, guid: 1670ad1fc44f5134f82dfe200cb5f6d8,
@@ -12611,6 +12647,11 @@ Prefab:
       propertyPath: m_Name
       value: NPC (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010745866362, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}
   m_IsPrefabParent: 0
@@ -13957,6 +13998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 1329518089}
   CorridorsToActivate: {fileID: 481500454}
   CorridorsToDeactivate: {fileID: 1421028648}
   ActivateRoom: 0
@@ -15988,13 +16030,39 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2071227239}
+  - 114: {fileID: 1329518090}
+  - 114: {fileID: 1329518091}
   m_Layer: 0
-  m_Name: npc_room
+  m_Name: npc_room_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1329518090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1329518089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863cd6f161f2b6d4b81ed4a416556438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1329518091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1329518089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9004ff0fcb46c6f4da122760d5e7f06e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossModel: {fileID: 1000012514378976, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
+  Room: {fileID: 1830687383}
 --- !u!4 &1331869528 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013663411188, guid: 1cb253fbc85350441864eff21642fdc9,
@@ -16805,6 +16873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 1329518089}
   CorridorsToActivate: {fileID: 1421028648}
   CorridorsToDeactivate: {fileID: 481500454}
   ActivateRoom: 1
@@ -18119,6 +18188,11 @@ Prefab:
     - target: {fileID: 1000013459572642, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}
       propertyPath: m_Name
       value: NPC (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010745866362, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}
@@ -19505,7 +19579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1625553822
 Transform:
   m_ObjectHideFlags: 0
@@ -19534,7 +19608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1631512371
 Transform:
   m_ObjectHideFlags: 0
@@ -19551,7 +19625,7 @@ Transform:
   - {fileID: 1126060856}
   - {fileID: 713629530}
   m_Father: {fileID: 665539872}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1631866062
 GameObject:
   m_ObjectHideFlags: 0
@@ -19583,9 +19657,8 @@ Transform:
   - {fileID: 1625553822}
   - {fileID: 743554901}
   - {fileID: 2031655550}
-  - {fileID: 108371291}
   m_Father: {fileID: 652228591}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &1637249195 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013663411188, guid: 1cb253fbc85350441864eff21642fdc9,
@@ -21145,6 +21218,11 @@ Prefab:
       propertyPath: m_Name
       value: NPC (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010745866362, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}
   m_IsPrefabParent: 0
@@ -21214,7 +21292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1831845079 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012474881602, guid: d61f1e41e1bd55c4593fdaee855595ab,
@@ -22027,6 +22105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 1329518089}
   CorridorsToActivate: {fileID: 1421028648}
   CorridorsToDeactivate: {fileID: 481500454}
   ActivateRoom: 0
@@ -22558,6 +22637,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010745866362, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}
   m_IsPrefabParent: 0
@@ -23074,7 +23158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2031655550
 Transform:
   m_ObjectHideFlags: 0
@@ -23552,7 +23636,7 @@ Transform:
   - {fileID: 1818113356}
   - {fileID: 1477992860}
   - {fileID: 1046066269}
-  m_Father: {fileID: 665539872}
+  m_Father: {fileID: 855645908}
   m_RootOrder: 1
 --- !u!4 &2071696566 stripped
 Transform:
