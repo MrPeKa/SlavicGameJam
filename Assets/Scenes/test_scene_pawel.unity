@@ -518,6 +518,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -931,6 +932,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -1689,6 +1691,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -1941,6 +1944,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -3425,6 +3429,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -4544,6 +4549,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -4723,6 +4729,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -6972,6 +6979,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -7514,6 +7522,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -8847,6 +8856,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -9621,6 +9631,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -10221,6 +10232,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -10744,6 +10756,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -11562,6 +11575,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -12930,6 +12944,7 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2

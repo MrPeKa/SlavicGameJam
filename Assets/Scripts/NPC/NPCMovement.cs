@@ -41,7 +41,17 @@ namespace Assets.Scripts.NPC
             npcInfo = gameObject.GetComponent<NPCInfo>();
             TargetToAttack = GameObject.FindWithTag("Player");
             StartCoroutine(CheckDirectionCoroutine());
+            StartCoroutine(Ranged());
             ResetTarget();
+        }
+
+        private IEnumerator Ranged()
+        {
+            while (true)
+            {
+                AttactRanged(TargetToAttack);
+                yield return new WaitForSeconds(5);
+            }
         }
 
         void Update()
@@ -122,6 +132,18 @@ namespace Assets.Scripts.NPC
         {
             PlayerInfo player = target.GetComponent<PlayerInfo>();
             player.GetDamage(npcInfo.Damage);
+        }
+
+        void AttactRanged(GameObject target)
+        {
+            PlayerInfo player = target.GetComponent<PlayerInfo>();
+            FireBullet(target,0.1f);
+        }
+
+        private void FireBullet(GameObject target, float projectileSpeed)
+        {
+           GameObject projectile = Instantiate(Resources.Load("bellsprout_ball") as GameObject, this.transform.position, this.transform.rotation) as GameObject;
+           projectile.GetComponent<Bullet>().InitalizeBullet(target, projectileSpeed,npcInfo.Damage);
         }
 
         private void ResetTarget()
