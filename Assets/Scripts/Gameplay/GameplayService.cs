@@ -18,13 +18,15 @@
             public const string DEAD = "Dead";
             public const string FOOTSTEPS = "FootSteps";
 
-
             private const string SOUNDS_PATH = "Sounds/";
 
+            public const string PLAYER = "Player";
             public const string POKEMON = "Pokemon";
             public const string BAY_WATCH = "BayWatch";
             public const string POWER_RANGERS = "PowerRangers";
             public const string DISCO = "Disco";
+
+            public const string PLAYER_CLIPS_PATH = SOUNDS_PATH + PLAYER + "/";
 
             public const string POKEMON_CLIPS_PATH = SOUNDS_PATH + POKEMON + "/";
             public const string BAY_WATCH_CLIPS_PATH = SOUNDS_PATH + BAY_WATCH + "/";
@@ -46,8 +48,9 @@
         DISCO
     }
 
-    public enum Bosses
+    public enum Characters
     {
+        PLAYER,
         PIKACHU,
         PAMELA
     }

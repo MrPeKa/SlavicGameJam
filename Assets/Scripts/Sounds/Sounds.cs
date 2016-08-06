@@ -3,6 +3,12 @@ using Assets.Scripts.Gameplay;
 
 public class Sounds : MonoBehaviour {
 
+    [Range(0, 1)]
+    public float _introVolume = 0.1f;
+
+    [Range(0, 1)]
+    public float _nonIntroVolume = 1f;
+
     private AudioSource audioSource;
 
     void Awake()
@@ -39,16 +45,20 @@ public class Sounds : MonoBehaviour {
         return path;
     }
 
-    private string GetClipPath(Bosses boss)
+    private string GetClipPath(Characters boss)
     {
         string path = null;
         switch (boss)
         {
-            case Bosses.PIKACHU:
+            case Characters.PLAYER:
+                path = GameplayServices.Constants.PLAYER_CLIPS_PATH + GameplayServices.Constants.PLAYER;
+                break;
+
+            case Characters.PIKACHU:
                 path = GameplayServices.Constants.POKEMON_CLIPS_PATH + GameplayServices.Constants.PIKACHU + "/" + GameplayServices.Constants.PIKACHU;
                 break;
 
-            case Bosses.PAMELA:
+            case Characters.PAMELA:
                 path = GameplayServices.Constants.BAY_WATCH_CLIPS_PATH + GameplayServices.Constants.PAMELA + "/" + GameplayServices.Constants.PAMELA;
                 break;
 
@@ -66,6 +76,7 @@ public class Sounds : MonoBehaviour {
         {
             clipPath += clipKind;
             audioSource.clip = Resources.Load<AudioClip>(clipPath);
+            audioSource.volume = _nonIntroVolume;
         }
     }
     
@@ -78,6 +89,7 @@ public class Sounds : MonoBehaviour {
     public void SetClipIntro(RoomSound soundComponentName)
     {
         SetClip(GetClipPath(soundComponentName), GameplayServices.Constants.INTRO);
+        audioSource.volume = _introVolume;
     }
 
     private void StopAudioSource()
@@ -103,24 +115,24 @@ public class Sounds : MonoBehaviour {
         StopAudioSource();
     }
 
-    public void PlayDeadSound(Bosses boss)
+    public void PlayDeadSound(Characters character)
     {
-        SetClipAndPlay(GetClipPath(boss), GameplayServices.Constants.DEAD);
+        SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.DEAD);
     }
 
-    public void PlayHitSound(Bosses boss)
+    public void PlayHitSound(Characters character)
     {
-        SetClipAndPlay(GetClipPath(boss), GameplayServices.Constants.HIT);
+        SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.HIT);
     }
 
-    public void PlayGetHitSound(Bosses boss)
+    public void PlayGetHitSound(Characters character)
     {
-        SetClipAndPlay(GetClipPath(boss), GameplayServices.Constants.GET_HIT);
+        SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.GET_HIT);
     }
 
-    public void PlayFootStepsSound(Bosses boss)
+    public void PlayFootStepsSound(Characters character)
     {
-        SetClipAndPlay(GetClipPath(boss), GameplayServices.Constants.FOOTSTEPS);
+        SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.FOOTSTEPS);
     }
 
 }
