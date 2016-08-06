@@ -727,6 +727,7 @@ GameObject:
   - 92: {fileID: 144404860}
   - 124: {fileID: 144404859}
   - 81: {fileID: 144404858}
+  - 114: {fileID: 144404862}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -788,7 +789,7 @@ Camera:
   far clip plane: 1000
   field of view: 179
   orthographic: 1
-  orthographic size: 29.02
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -802,6 +803,18 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &144404862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 144404856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99356d66e9aa54f499bf613b3f73aced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToFollow: {fileID: 1049921904}
 --- !u!1001 &149475999
 Prefab:
   m_ObjectHideFlags: 0
@@ -1264,6 +1277,16 @@ Prefab:
       propertyPath: m_Name
       value: pokemon_room_3
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 144404856}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: triggerSource
+      value: 
+      objectReference: {fileID: 1049921904}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07fc8f4bc15bb31459c3cd86d3f0da88, type: 2}
   m_IsPrefabParent: 0
@@ -2297,56 +2320,44 @@ Transform:
   - {fileID: 1653102774}
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!1001 &665089268
+--- !u!1001 &653040781
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_LocalPosition.x
       value: -33.68
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.0583663
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010577071114, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
+    - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010048756268, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013797833580, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013269396644, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
@@ -2390,13 +2401,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 144404856}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: triggerSource
+      value: 
+      objectReference: {fileID: 1049921904}
     - target: {fileID: 1000011213992060, guid: 07fc8f4bc15bb31459c3cd86d3f0da88, type: 2}
       propertyPath: m_Name
       value: pokemon_room_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011213992060, guid: 07fc8f4bc15bb31459c3cd86d3f0da88, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07fc8f4bc15bb31459c3cd86d3f0da88, type: 2}
@@ -3411,6 +3428,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000013981870406, guid: 669ea7e353122514c9ac710e1d836e00,
     type: 2}
   m_PrefabInternal: {fileID: 1040517950}
+--- !u!1 &1049921904 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010235720252, guid: 1747b942c409f9b4faf58543ac5ac17c,
+    type: 2}
+  m_PrefabInternal: {fileID: 653040781}
 --- !u!1001 &1057340900
 Prefab:
   m_ObjectHideFlags: 0
@@ -5145,6 +5167,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 144404856}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: triggerSource
+      value: 
+      objectReference: {fileID: 1049921904}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07fc8f4bc15bb31459c3cd86d3f0da88, type: 2}
   m_IsPrefabParent: 0
@@ -5710,6 +5742,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 144404856}
+    - target: {fileID: 114000013673839136, guid: 07fc8f4bc15bb31459c3cd86d3f0da88,
+        type: 2}
+      propertyPath: triggerSource
+      value: 
+      objectReference: {fileID: 1049921904}
     - target: {fileID: 1000011213992060, guid: 07fc8f4bc15bb31459c3cd86d3f0da88, type: 2}
       propertyPath: m_Name
       value: pokemon_room_4

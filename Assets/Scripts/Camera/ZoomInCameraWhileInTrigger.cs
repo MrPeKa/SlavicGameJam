@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Camera
 {
@@ -12,7 +7,10 @@ namespace Assets.Scripts.Camera
     {
         public GameObject cameraObject;
         public GameObject triggerSource;
-        public float cameraSize;
+
+        public float CloseCameraSize;
+        public float FarCameraSize;
+
         public float scaleDuration;
 
         private bool animationStarted;
@@ -23,11 +21,11 @@ namespace Assets.Scripts.Camera
         {
             //Debug.Log("Triggered");
             var collidingObj = collider.gameObject;
-            if(collidingObj.CompareTag(triggerSource.tag))
+            if (collidingObj.CompareTag(triggerSource.tag))
             {
                 var camera = cameraObject.GetComponent<UnityEngine.Camera>();
                 previousCameraSize = camera.orthographicSize;
-                currentScaling = StartCoroutine(SmoothCameraSizeChangeCoroutine(camera, scaleDuration, cameraSize));
+                currentScaling = StartCoroutine(SmoothCameraSizeChangeCoroutine(camera, scaleDuration, CloseCameraSize));
             }
 
         }
@@ -41,7 +39,7 @@ namespace Assets.Scripts.Camera
             }
             var cam = cameraObject.GetComponent<UnityEngine.Camera>();
             //cam.orthographicSize = previousCameraSize;
-            StartCoroutine(SmoothCameraSizeChangeCoroutine(cam, scaleDuration, previousCameraSize));
+            StartCoroutine(SmoothCameraSizeChangeCoroutine(cam, scaleDuration, FarCameraSize));
         }
 
         private IEnumerator SmoothCameraSizeChangeCoroutine(UnityEngine.Camera camera, float duration, float endVal)
@@ -52,8 +50,8 @@ namespace Assets.Scripts.Camera
             float startDiff = Mathf.Abs(endVal - originalOrtographicSize);
             float timeElapsed = .0f;
             float sign = (originalOrtographicSize < endVal) ? 1 : -1;
-        
-            while(timeElapsed <= duration)
+
+            while (timeElapsed <= duration)
             {
                 timeElapsed += Time.deltaTime;
                 float factor = Mathf.Min(timeElapsed / duration, 1);
