@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Player.PlayerManagement;
 using Assets.Scripts.Utilities;
 
 namespace Assets.Scripts.Player.Movement
@@ -11,12 +12,18 @@ namespace Assets.Scripts.Player.Movement
         public const string ATTACK_BUTTON = "Fire1";
         public float playerSpeed;
 
+        public PlayerInfo playerInfo;
+        public PlayerDetectsOpponents playerDetection;
+
         private Rigidbody2D rb;
         private float lastXSpeed, lastYSpeed;
         private bool facingRight = true;
+        private bool facingTop = false;
 
         void Start()
         {
+            playerDetection = GetComponentInChildren<PlayerDetectsOpponents>();
+            playerInfo = GetComponent<PlayerInfo>();
             rb = GetComponent<Rigidbody2D>();
         }
 
@@ -65,7 +72,14 @@ namespace Assets.Scripts.Player.Movement
 
         private void OnAttack()
         {
-            Debug.Log("Attack!");
+            if (playerInfo.IsMelee && playerDetection.OpponentInRange)
+            {
+                foreach (var opponent in playerDetection.listOfOpponentsInRange)
+                {
+                    Debug.Log("hitted");
+                    //give dmg to each of the opponent
+                }
+            }
         }
     }
 }
