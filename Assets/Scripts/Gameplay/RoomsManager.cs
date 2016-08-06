@@ -8,7 +8,6 @@ namespace Assets.Scripts.Gameplay
 {
     public interface IRoomsManager
     {
-        void Reset();
         void GenerateLevelVertically(List<GameObject> rooms, int minDistanceBetweenRooms, int maxDistanceBetweenRooms);
         void GenerateLevelHorizontally(List<GameObject> rooms, int minDistanceBetweenRooms, int maxDistanceBetweenRooms);
         List<Room> Rooms { get; }
@@ -16,16 +15,15 @@ namespace Assets.Scripts.Gameplay
 
     public class RoomsManager : IRoomsManager
     {
+        private readonly GameObject _corridorsContainer;
+        private readonly Sprite _corridorSprite;
         public List<Room> Rooms { get; private set; }
 
-        public RoomsManager()
+        public RoomsManager(GameObject corridorsContainer, Sprite corridorSprite)
         {
+            _corridorsContainer = corridorsContainer;
+            _corridorSprite = corridorSprite;
             Rooms = new List<Room>();
-        }
-
-        public void Reset()
-        {
-            Rooms.Clear();
         }
 
         public void GenerateLevelVertically(List<GameObject> rooms, int minDistanceBetweenRooms, int maxDistanceBetweenRooms)
@@ -52,6 +50,34 @@ namespace Assets.Scripts.Gameplay
             Rooms = rooms.Select(r => r.ToRoom()).ToList();
 
             GenerateRoomsHorizontally(Rooms, minDistanceBetweenRooms, maxDistanceBetweenRooms);
+            DrawHorizontalCorridorsBetweenRooms(Rooms);
+        }
+
+        private void DrawHorizontalCorridorsBetweenRooms(List<Room> rooms)
+        {
+            var orderedRooms = rooms.OrderBy(r => r.Index).ToList();
+            for (int i = 0; i < orderedRooms.Count - 1; i++)
+            {
+                var startDoor = orderedRooms[i].GetRightDoorPosition();
+                var endDoor = orderedRooms[i+1].GetLeftDoorPosition();
+
+                for (int x = (int) startDoor.x; x < endDoor.x; x++)
+                {
+                    DrawCorridor(new Vector2(x, 0));
+                }
+            }
+        }
+
+        private void DrawCorridor(Vector2 corridorPosition)
+        {
+            var corridor = new GameObject();
+            corridor.SetName("corridor");
+            corridor.SetPosition(corridorPosition);
+            corridor.SetParent(_corridorsContainer);
+
+            var spriteRenderer = corridor.AddComponent<SpriteRenderer>();
+            spriteRenderer.sprite = _corridorSprite;
+            spriteRenderer.sortingOrder = -2;
         }
 
         private void GenerateRoomsHorizontally(List<Room> rooms, int minDistanceBetweenRooms, int maxDistanceBetweenRooms)
@@ -61,10 +87,13 @@ namespace Assets.Scripts.Gameplay
             var randomizedRooms = rooms.OrderBy(room => roomRandomizer.Next()).ToList();
 
             var nextRoomPosition = new Vector2(0, 0);
+            var roomIndex = 1;
 
             foreach (var room in randomizedRooms)
             {
                 room.SetPosition(new Vector2(nextRoomPosition.x + room.Size.x / 2, 0));
+                room.Index = roomIndex;
+                roomIndex++;
 
                 // Calculate position for the next room
                 var randomDistanceBetweenRooms = roomRandomizer.Next(minDistanceBetweenRooms, maxDistanceBetweenRooms);
@@ -89,6 +118,5 @@ namespace Assets.Scripts.Gameplay
                 nextRoomPosition = new Vector2(0, room.GetPosition().y + randomDistanceBetweenRooms);
             }
         }
-
     }
 }
