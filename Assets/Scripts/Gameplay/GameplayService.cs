@@ -22,6 +22,8 @@
             public const string StartRoom = "Start Room";
             public const string PlayerName = "Player";
 
+            public const string BUFFS_MANAGER = "BuffsManager";
+
             // Sound Extentions
             public const string INTRO = "Intro";
             public const string HIT = "Hit";

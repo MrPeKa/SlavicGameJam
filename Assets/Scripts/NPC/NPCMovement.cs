@@ -20,6 +20,8 @@ namespace Assets.Scripts.NPC
 
         public NPCInfo npcInfo;
 
+        private Animator anim;
+
         //Is all about random trversing.
         private int _directionX;
         private int _directionY = 1;
@@ -38,15 +40,29 @@ namespace Assets.Scripts.NPC
         {
             _cooldownTime = new Stopwatch();
             _cooldownTime.Reset();
+
+            if (SelfAnimating)
+            {
+                anim = GetComponent<Animator>();
+            }
+
             npcInfo = gameObject.GetComponent<NPCInfo>();
             TargetToAttack = GameObject.FindWithTag("Player");
             StartCoroutine(CheckDirectionCoroutine());
             ResetTarget();
+
         }
 
         void Update()
         {
-            if(!_isChangingDirection && !Targeting)
+            if (SelfAnimating)
+            {
+                anim.SetBool("IsMoving", false);
+                anim.SetFloat("LastMoveX", _directionX);
+                anim.SetFloat("LastMoveY", _directionY);
+            }
+
+            if (!_isChangingDirection && !Targeting)
                 Move();
             if (!FreeTraversing)
             {
@@ -65,7 +81,7 @@ namespace Assets.Scripts.NPC
                 }
             }
 
-            if (npcInfo.HealthPoints <= 0)
+            (npcInfo.HealthPoints <= 0)
                 Dying();
         }
 
@@ -81,7 +97,15 @@ namespace Assets.Scripts.NPC
         {
             var newX = transform.position.x + _directionX*Speed;
             var newY = transform.position.y + _directionY*Speed;
+
             transform.position = new Vector2(newX, newY);
+
+            if (SelfAnimating)
+            {
+                anim.SetFloat("MoveX", Input.GetAxis("Horizontal"));
+                anim.SetFloat("MoveY", Input.GetAxis("Vertical"));
+                anim.SetBool("IsMoving", true);
+            }
         }
 
         //APPLY MUSIC OF MOVING NPC
@@ -159,9 +183,10 @@ namespace Assets.Scripts.NPC
 
             if (SelfAnimating)
             {
-
+                Move();
                 return;
             }
+
                 
             if(_directionY>0)
                 FlipUp();
