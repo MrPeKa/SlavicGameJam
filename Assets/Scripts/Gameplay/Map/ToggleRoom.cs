@@ -6,6 +6,8 @@ namespace Assets.Scripts.Gameplay.Map
     public class ToggleRoom : MonoBehaviour
     {
         public GameObject Room;
+        public GameObject CorridorsToActivate;
+        public GameObject CorridorsToDeactivate;
         public bool ActivateRoom;
         public Light Light;
 
@@ -22,6 +24,12 @@ namespace Assets.Scripts.Gameplay.Map
 
         private IEnumerator DisplayRoom()
         {
+            if (!CorridorsToActivate.activeSelf)
+                CorridorsToActivate.SetActive(true);
+
+            if (CorridorsToDeactivate.activeSelf)
+                CorridorsToDeactivate.SetActive(false);
+
             if (Room.activeSelf)
                 yield break;
 
