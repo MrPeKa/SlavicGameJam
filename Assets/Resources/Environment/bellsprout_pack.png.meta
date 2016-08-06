@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 guid: e2b823ded2648ae4cbf4f9f0fba2c3bd
+<<<<<<< HEAD
 timeCreated: 1470511615
 licenseType: Free
 TextureImporter:
@@ -26,6 +27,27 @@ TextureImporter:
     21300038: bellsprout_pack_19
     21300040: bellsprout_pack_20
     21300042: bellsprout_pack_21
+=======
+timeCreated: 1470512610
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bellsprout_idle
+    21300002: bellsprout_pack_1
+    21300004: 1
+    21300006: 2
+    21300008: 3
+    21300010: 4
+    21300012: 5
+    21300014: 6
+    21300016: 7
+    21300018: 12
+    21300020: 8
+    21300022: 9
+    21300024: 10
+    21300026: 11
+    21300028: 13
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -75,7 +97,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_0
+=======
+      name: bellsprout_idle
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 24
@@ -83,7 +109,11 @@ TextureImporter:
         width: 31
         height: 49
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -96,12 +126,20 @@ TextureImporter:
         width: 30
         height: 45
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bullet1
+=======
+      name: 1
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 13
@@ -114,7 +152,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_3
+=======
+      name: 2
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 25
@@ -122,12 +164,20 @@ TextureImporter:
         width: 7
         height: 7
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_4
+=======
+      name: 3
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 36
@@ -135,12 +185,20 @@ TextureImporter:
         width: 8
         height: 7
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_5
+=======
+      name: 4
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 47
@@ -148,12 +206,20 @@ TextureImporter:
         width: 11
         height: 8
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_6
+=======
+      name: 5
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 61
@@ -161,12 +227,20 @@ TextureImporter:
         width: 13
         height: 9
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_7
+=======
+      name: 6
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 78
@@ -174,12 +248,20 @@ TextureImporter:
         width: 12
         height: 8
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_8
+=======
+      name: 7
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 94
@@ -187,6 +269,7 @@ TextureImporter:
         width: 11
         height: 8
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -214,11 +297,18 @@ TextureImporter:
         height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_11
+=======
+      name: 12
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 88
@@ -226,12 +316,20 @@ TextureImporter:
         width: 20
         height: 19
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_12
+=======
+      name: 8
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 17
@@ -239,12 +337,20 @@ TextureImporter:
         width: 12
         height: 11
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_13
+=======
+      name: 9
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 32
@@ -252,11 +358,16 @@ TextureImporter:
         width: 9
         height: 12
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_14
       rect:
         serializedVersion: 2
@@ -305,10 +416,22 @@ TextureImporter:
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
+=======
+      name: 10
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 9
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_18
       rect:
         serializedVersion: 2
@@ -318,11 +441,26 @@ TextureImporter:
         height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
+=======
+      name: 11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 9
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       name: bellsprout_pack_19
+=======
+      name: 13
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       rect:
         serializedVersion: 2
         x: 117
@@ -330,6 +468,7 @@ TextureImporter:
         width: 4
         height: 4
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -357,6 +496,9 @@ TextureImporter:
         height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
+=======
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> 6ac700fb03bf126fd741ec22549a6118403e5503
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
