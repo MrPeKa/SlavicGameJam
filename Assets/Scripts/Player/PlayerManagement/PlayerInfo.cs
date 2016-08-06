@@ -6,7 +6,7 @@ namespace Assets.Scripts.Player.PlayerManagement
 {
     public class PlayerInfo : MonoBehaviour
     {
-
+        [SerializeField] public float MaxHealthPoints = 100f;
         [SerializeField] public float HealthPoints = 100f;
         [SerializeField] public float Damage = 20f;
         [SerializeField] public bool IsMelee = true;

@@ -20,7 +20,7 @@
 
             public const string RoomBackgroundChild = "background";
             public const string StartRoom = "Start Room";
-            public const string PlayerName = "player";
+            public const string PlayerName = "Player";
 
             // Sound Extentions
             public const string INTRO = "Intro";
@@ -68,7 +68,7 @@
     }
 
     // For each enum define string
-    public enum Characters
+    public enum Creatures
     {
         PLAYER,
         PIKACHU,

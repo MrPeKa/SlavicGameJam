@@ -12,6 +12,7 @@ namespace Assets.Scripts.Player.Movement
         public const string VERTICAL_AXIS_NAME = "Vertical";
         public const string ATTACK_BUTTON = "Fire1";
         public float playerSpeed;
+        public bool isSlowed;
 
         public PlayerInfo playerInfo;
         public PlayerDetectsOpponents playerDetection;
