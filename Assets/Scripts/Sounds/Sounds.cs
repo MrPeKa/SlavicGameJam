@@ -21,6 +21,10 @@ public class Sounds : MonoBehaviour {
         string path = null;
         switch (soundComponentName)
         {
+            case RoomSound.NORMAL:
+                path = GameplayServices.Constants.SOUNDS_PATH + GameplayServices.Constants.NORMAL;
+                break;
+
             case RoomSound.POKEMON:
                 path = GameplayServices.Constants.POKEMON_CLIPS_PATH + GameplayServices.Constants.POKEMON;
                 break;
@@ -62,6 +66,18 @@ public class Sounds : MonoBehaviour {
                 path = GameplayServices.Constants.BAY_WATCH_CLIPS_PATH + GameplayServices.Constants.PAMELA + "/" + GameplayServices.Constants.PAMELA;
                 break;
 
+            case Characters.NORMAL1:
+                path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.NORMAL1 + "/" + GameplayServices.Constants.NORMAL1;
+                break;
+
+            case Characters.MEDIUM1:
+                path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.MEDIUM1 + "/" + GameplayServices.Constants.MEDIUM1;
+                break;
+
+            case Characters.HARD1:
+                path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.HARD1 + "/" + GameplayServices.Constants.HARD1;
+                break;
+
             default:
                 Debug.LogError("Unhandled SoundComponents parameter");
                 break;
@@ -77,6 +93,7 @@ public class Sounds : MonoBehaviour {
             clipPath += clipKind;
             audioSource.clip = Resources.Load<AudioClip>(clipPath);
             audioSource.volume = _nonIntroVolume;
+            audioSource.loop = false;
         }
     }
     
@@ -90,6 +107,7 @@ public class Sounds : MonoBehaviour {
     {
         SetClip(GetClipPath(soundComponentName), GameplayServices.Constants.INTRO);
         audioSource.volume = _introVolume;
+        audioSource.loop = true;
     }
 
     private void StopAudioSource()

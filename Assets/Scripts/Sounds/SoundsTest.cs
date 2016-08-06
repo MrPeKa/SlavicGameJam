@@ -30,6 +30,11 @@ public class SoundsTest : MonoBehaviour {
         sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.PLAYER);
     }
 
+    public void PlayNormalBackgroundSound()
+    {
+        sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.NORMAL);
+    }
+
     public void PlayPokemonRoomIntroSound()
     {
         sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.POKEMON);
@@ -88,5 +93,65 @@ public class SoundsTest : MonoBehaviour {
     public void PlayBayWatchPamelaFootStepsSound()
     {
         sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.PAMELA);
+    }
+
+    public void PlayNormal1HitSound()
+    {
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Characters.NORMAL1);
+    }
+
+    public void PlayNormal1GetHitSound()
+    {
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Characters.NORMAL1);
+    }
+
+    public void PlayNormal1DeadSound()
+    {
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Characters.NORMAL1);
+    }
+
+    public void PlayNormal1FootStepsSound()
+    {
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.NORMAL1);
+    }
+
+    public void PlayMedium1HitSound()
+    {
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Characters.MEDIUM1);
+    }
+
+    public void PlayMedium1GetHitSound()
+    {
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Characters.MEDIUM1);
+    }
+
+    public void PlayMedium1DeadSound()
+    {
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Characters.MEDIUM1);
+    }
+
+    public void PlayMedium1FootStepsSound()
+    {
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.MEDIUM1);
+    }
+
+    public void PlayHard1HitSound()
+    {
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Characters.HARD1);
+    }
+
+    public void PlayHard1GetHitSound()
+    {
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Characters.HARD1);
+    }
+
+    public void PlayHard1DeadSound()
+    {
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Characters.HARD1);
+    }
+
+    public void PlayHard1FootStepsSound()
+    {
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.HARD1);
     }
 }
