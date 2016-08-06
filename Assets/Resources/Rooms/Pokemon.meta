@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4c6aaa75c2c50eb4aac7ec5106a8ed55
 folderAsset: yes
 timeCreated: 1470471814
+=======
+guid: 1a681edde5a5bad47b09a3a82135dc45
+folderAsset: yes
+timeCreated: 1470465866
+>>>>>>> new_camera
 licenseType: Free
 DefaultImporter:
   userData: 
