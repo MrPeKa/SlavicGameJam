@@ -9,18 +9,19 @@ namespace Assets.Scripts.Gameplay
     {
         [Tooltip("List of rooms the level will be composed of.")]
         public GameObject[] Rooms;
+        public Sprite MainCorridorSprite;
+        public GameObject CorridorsContainer;
 
+        [Header("Generation Parameters")]
         public bool VerticalLevel;
         public int MinDistanceBetweenRooms;
         public int MaxDistanceBetweenRooms;
-
 
         private IRoomsManager _roomsManager;
 
         void Start()
         {
-            _roomsManager = GameplayServices.RoomsManager;
-            _roomsManager.Reset();
+            _roomsManager = new RoomsManager(CorridorsContainer, MainCorridorSprite);
 
             if (VerticalLevel)
                 _roomsManager.GenerateLevelVertically(GetRooms(), MinDistanceBetweenRooms, MaxDistanceBetweenRooms);

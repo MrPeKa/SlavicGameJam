@@ -5,6 +5,7 @@ namespace Assets.Scripts.Gameplay
 {
     public class Room
     {
+        public int Index { get; set; }
         public Vector2 Size { get; set; }
         public string Name { get; set; }
         public GameObject GameObject { get; set; }
@@ -24,7 +25,7 @@ namespace Assets.Scripts.Gameplay
             {
                 Size = gameObject.GetSize(),
                 Name = gameObject.name,
-                GameObject = MonoBehaviour.Instantiate(gameObject)
+                GameObject = MonoBehaviour.Instantiate(gameObject),
             };
 
             // rename the object after the instantation ('clone' added to the name)
@@ -47,9 +48,33 @@ namespace Assets.Scripts.Gameplay
             room.GameObject.transform.position = newPosition;
         }
 
+        public static void SetPosition(this GameObject gameObject, Vector2 newPosition)
+        {
+            gameObject.transform.position = newPosition;
+        }
+
+        public static void SetParent(this GameObject gameObject, GameObject parent)
+        {
+            gameObject.transform.parent = parent.transform;
+        }
+        
         public static Vector2 GetPosition(this Room room)
         {
             return room.GameObject.transform.position;
+        }
+
+        public static Vector2 GetLeftDoorPosition(this Room room)
+        {
+            var roomPosition = room.GetPosition();
+            var leftDoorPosition = new Vector2(roomPosition.x - room.Size.x / 2, 0);
+            return leftDoorPosition;
+        }
+
+        public static Vector2 GetRightDoorPosition(this Room room)
+        {
+            var roomPosition = room.GetPosition();
+            var leftDoorPosition = new Vector2(roomPosition.x + room.Size.x / 2, 0);
+            return leftDoorPosition;
         }
     }
 }
