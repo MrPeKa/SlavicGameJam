@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics;
-using System.Net.Sockets;
-using System.Threading;
 using Assets.Scripts.Gameplay;
 using Assets.Scripts.Player.PlayerManagement;
 using UnityEngine;
@@ -17,6 +14,8 @@ namespace Assets.Scripts.NPC
         [SerializeField] public bool FreeTraversing = true;
         [SerializeField] public GameObject TargetToAttack;
         [SerializeField] public bool Targeting;
+
+        public bool SelfAnimating;
 
         public NPCInfo npcInfo;
 
@@ -129,7 +128,7 @@ namespace Assets.Scripts.NPC
             }
         }
 
-        public Vector2 ChangeDirection()
+        public void ChangeDirection()
         {
             int newDirectX;
             int newDirectY;
@@ -144,6 +143,12 @@ namespace Assets.Scripts.NPC
             _directionY = newDirectY;
             _isChangingDirection = false;
 
+            if (SelfAnimating)
+            {
+
+                return;
+            }
+                
             if(_directionY>0)
                 FlipUp();
             if(_directionX>0)
@@ -152,7 +157,6 @@ namespace Assets.Scripts.NPC
                 FlipLeft();
             if(_directionY<0)
                 FlipDown();
-            return new Vector2(_directionX,_directionY);
         }
 
         private void FlipRight()
