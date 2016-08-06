@@ -645,6 +645,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -1328,6 +1331,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -2209,6 +2215,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -2408,15 +2417,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.w
@@ -2425,6 +2434,17 @@ Prefab:
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012378733626, guid: ba1b0c65b3abb66498402a2a83b38019,
+        type: 2}
+      propertyPath: PrefabOfProjectile
+      value: 
+      objectReference: {fileID: 1000011212190812, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca,
+        type: 2}
+    - target: {fileID: 114000012378733626, guid: ba1b0c65b3abb66498402a2a83b38019,
+        type: 2}
+      propertyPath: SelfAnimating
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
@@ -2913,6 +2933,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -4919,6 +4942,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -7102,6 +7128,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -7385,6 +7414,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -11855,6 +11887,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -12819,6 +12854,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -14872,6 +14910,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -15989,6 +16030,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -16629,6 +16673,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -17361,6 +17408,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -18690,6 +18740,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -20898,6 +20951,9 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
@@ -23957,53 +24013,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012224016992, guid: 40bb601142c378a44b1d9c0476ed2c0b,
     type: 2}
   m_PrefabInternal: {fileID: 882034367}
---- !u!1001 &2110509118
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.079
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010189868520, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 95000012199574528, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b6399739e74085b4da878a9d463b6f0f, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &2120051510
 GameObject:
   m_ObjectHideFlags: 0

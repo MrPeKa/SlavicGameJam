@@ -122,6 +122,9 @@ MonoBehaviour:
   FreeTraversing: 0
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
   RotatingOnlyInX: 1
   SelfAnimating: 1
   npcInfo: {fileID: 0}
