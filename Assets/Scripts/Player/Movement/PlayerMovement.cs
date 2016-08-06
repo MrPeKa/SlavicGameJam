@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Assets.Scripts.NPC;
+using UnityEngine;
+
 using Assets.Scripts.Player.PlayerManagement;
-using Assets.Scripts.Utilities;
+
 
 namespace Assets.Scripts.Player.Movement
 {
@@ -53,7 +54,6 @@ namespace Assets.Scripts.Player.Movement
             transform.eulerAngles = new Vector3(0, 0, 180);
         }
 
-
         private void FlipUp()
         {
             facingTop = true;
@@ -90,7 +90,6 @@ namespace Assets.Scripts.Player.Movement
                 FlipLeft();
         }
                 
-
         private void HandleAttack()
         {
             if (Input.GetButtonDown(ATTACK_BUTTON))
@@ -101,10 +100,10 @@ namespace Assets.Scripts.Player.Movement
         {
             if (playerInfo.IsMelee && playerDetection.OpponentInRange)
             {
-                foreach (var opponent in playerDetection.listOfOpponentsInRange)
+                foreach (GameObject opponent in playerDetection.ListOfOpponentsInRange)
                 {
-                    Debug.Log("hitted");
-                    //give dmg to each of the opponent
+                    var npcInfo = opponent.GetComponent<NPCInfo>();
+                    npcInfo.GetDamage(playerInfo.Damage);
                 }
             }
         }

@@ -1,5 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Diagnostics;
+using System.Net.Sockets;
+using System.Threading;
+using Assets.Scripts.Gameplay;
+using Assets.Scripts.Player.PlayerManagement;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.NPC
 {
@@ -11,28 +18,52 @@ namespace Assets.Scripts.NPC
         [SerializeField] public GameObject TargetToAttack;
         [SerializeField] public bool Targeting;
 
+        public NPCInfo npcInfo;
+
         //Is all about random trversing.
         private int _directionX;
         private int _directionY = 1;
         private bool _isChangingDirection;
+        public bool IsFightingMelee;
 
         //Is all about travelling to the target.
         private float _journeyTime;
         private float _journeyLength;
 
+        //Cooldown related with fighting
+        private Stopwatch _cooldownTime;
+        public float CoolDownLimitAttact = 2;
+
         void Awake()
         {
-            TargetToAttack = GameObject.FindWithTag("target");
+            _cooldownTime = new Stopwatch();
+            _cooldownTime.Reset();
+            npcInfo = gameObject.GetComponent<NPCInfo>();
+            TargetToAttack = GameObject.FindWithTag("Player");
             StartCoroutine(CheckDirection());
             ResetTarget();
         }
+
 
         void Update()
         {
             if(!_isChangingDirection && !Targeting)
                 Move();
-            if(!FreeTraversing)
+            if (!FreeTraversing)
+            {
                 MoveToTheTarget(TargetToAttack);
+                if (IsFightingMelee)
+                {
+                    if (_cooldownTime.Elapsed.Milliseconds<=0f)
+                    {
+                        _cooldownTime.Reset();
+                        _cooldownTime.Start();
+                        AttactMelee(TargetToAttack);
+                    }
+                    else if(_cooldownTime.Elapsed.Seconds>=CoolDownLimitAttact)
+                        _cooldownTime.Reset();
+                }
+            }
         }
 
         private void Move()
@@ -60,11 +91,24 @@ namespace Assets.Scripts.NPC
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (Targeting && other.CompareTag("target"))
+            if (Targeting && other.CompareTag(GameplayServices.Tags.Player))
             {
-                ResetTarget();
-                Debug.Log("achieved");
+                IsFightingMelee = true;
             }
+        }
+
+        void OnTriggerExit2D(Collider2D other)
+        {
+            if (Targeting && other.CompareTag(GameplayServices.Tags.Player))
+            {
+                IsFightingMelee = false;
+            }
+        }
+
+        void AttactMelee(GameObject target)
+        {
+            PlayerInfo player = target.GetComponent<PlayerInfo>();
+            player.GetDamage(npcInfo.Damage);
         }
 
         private void ResetTarget()
@@ -100,7 +144,35 @@ namespace Assets.Scripts.NPC
             _directionY = newDirectY;
             _isChangingDirection = false;
 
+            if(_directionY>0)
+                FlipUp();
+            if(_directionX>0)
+                FlipRight();
+            if (_directionX < 0)
+                FlipLeft();
+            if(_directionY<0)
+                FlipDown();
             return new Vector2(_directionX,_directionY);
+        }
+
+        private void FlipRight()
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        private void FlipLeft()
+        {
+            transform.eulerAngles = new Vector3(0, 0, 180);
+        }
+
+        private void FlipUp()
+        {
+            transform.eulerAngles = new Vector3(0, 0, 90);
+        }
+
+        private void FlipDown()
+        {
+            transform.eulerAngles = new Vector3(0, 0, 270);
         }
 
     }
