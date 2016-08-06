@@ -3,24 +3,34 @@ using UnityEngine;
 
 namespace Assets.Scripts.Sounds
 {
-    [RequireComponent(typeof(AudioClip))]
-    [RequireComponent(typeof(AudioSource))]
-    public class Sounds : MonoBehaviour
+    public static class SoundManager
     {
-        [Range(0, 1)]
-        public float IntroVolume = 0.1f;
-
-        [Range(0, 1)]
-        public float NonIntroVolume = 1f;
-
-        private AudioSource _audioSource;
-
-        void Awake()
+        public static AudioClip PlayRoomIntroMusic(RoomSound soundComponentName)
         {
-            _audioSource = gameObject.GetComponent<AudioSource>();
+            return GetClip(GetClipPath(soundComponentName), GameplayServices.Constants.INTRO);
+        }
+ 
+        public static AudioClip PlayDeadSound(Creatures character)
+        {
+            return GetClip(GetClipPath(character), GameplayServices.Constants.DEAD);
+        }
+ 
+        public static AudioClip PlayHitSound(Creatures character)
+        {
+            return GetClip(GetClipPath(character), GameplayServices.Constants.HIT);
         }
 
-        private string GetClipPath(RoomSound soundComponentName)
+        public static AudioClip PlayGetHitSound(Creatures character)
+        {
+            return GetClip(GetClipPath(character), GameplayServices.Constants.GET_HIT);
+        }
+
+        public static AudioClip PlayFootStepsSound(Creatures character)
+        {
+            return GetClip(GetClipPath(character), GameplayServices.Constants.FOOTSTEPS);
+        }
+
+        private static string GetClipPath(RoomSound soundComponentName)
         {
             string path = null;
             switch (soundComponentName)
@@ -53,7 +63,7 @@ namespace Assets.Scripts.Sounds
             return path;
         }
 
-        private string GetClipPath(Creatures boss)
+        private static string GetClipPath(Creatures boss)
         {
             string path = null;
             switch (boss)
@@ -90,71 +100,10 @@ namespace Assets.Scripts.Sounds
             return path;
         }
 
-        private void SetClip(string clipPath, string clipKind)
+        private static AudioClip GetClip(string clipPath, string clipKind)
         {
-            if (clipPath != null)
-            {
-                clipPath += clipKind;
-                _audioSource.clip = Resources.Load<AudioClip>(clipPath);
-                _audioSource.volume = NonIntroVolume;
-                _audioSource.loop = false;
-            }
-        }
-
-        private void SetClipAndPlay(string clipPath, string clipKind)
-        {
-            SetClip(clipPath, clipKind);
-            StopAndPlayAudioSource();
-        }
-
-        public void SetClipIntro(RoomSound soundComponentName)
-        {
-            SetClip(GetClipPath(soundComponentName), GameplayServices.Constants.INTRO);
-            _audioSource.volume = IntroVolume;
-            _audioSource.loop = true;
-        }
-
-        private void StopAudioSource()
-        {
-            _audioSource.Stop();
-        }
-
-        private void StopAndPlayAudioSource()
-        {
-            _audioSource.Stop();
-            _audioSource.Play();
-        }
-
-        public void PlayRoomIntroSound(RoomSound soundComponentName)
-        {
-            SetClipIntro(soundComponentName);
-            StopAndPlayAudioSource();
-        }
-
-        public void StopRoomIntroSound(RoomSound soundComponentName)
-        {
-            SetClipIntro(soundComponentName);
-            StopAudioSource();
-        }
-
-        public void PlayDeadSound(Creatures character)
-        {
-            SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.DEAD);
-        }
-
-        public void PlayHitSound(Creatures character)
-        {
-            SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.HIT);
-        }
-
-        public void PlayGetHitSound(Creatures character)
-        {
-            SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.GET_HIT);
-        }
-
-        public void PlayFootStepsSound(Creatures character)
-        {
-            SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.FOOTSTEPS);
+            clipPath += clipKind;
+            return Resources.Load<AudioClip>(clipPath);
         }
     }
 }

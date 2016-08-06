@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts.NPC;
+using Assets.Scripts.Sounds;
 using UnityEngine;
 
 namespace Assets.Scripts.Gameplay.Map
@@ -12,6 +13,16 @@ namespace Assets.Scripts.Gameplay.Map
         public GameObject CorridorsToDeactivate;
         public bool ActivateRoom;
         public Light Light;
+        public RoomSound RoomIntroMusic;
+        private AudioClip _clip;
+
+//        private Sounds.Sounds _soundsManager;
+
+        void Start()
+        {
+//            _soundsManager = GameObject.Find("Initialize Level").GetComponent<Sounds.Sounds>();
+            _clip = SoundManager.PlayRoomIntroMusic(RoomIntroMusic);
+        }
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -34,6 +45,8 @@ namespace Assets.Scripts.Gameplay.Map
 
             if (Light.range > 0)
                 yield break;
+
+//            _soundsManager.PlayRoomIntroSound(RoomIntroMusic);
 
             Light.range = 0;
             yield return new WaitForSeconds(0.1f);
@@ -63,6 +76,8 @@ namespace Assets.Scripts.Gameplay.Map
 //            Room.transform.FindChild(GameplayServices.Constants.RoomBackgroundChild).gameObject.SetActive(false);
             Room.transform.FindChild("Environment").gameObject.SetActive(false);
             NPCs.GetComponent<HideNPCs>().Hide();
+
+//            _soundsManager.StopRoomIntroSound(RoomIntroMusic);
         }
     }
 }
