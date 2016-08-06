@@ -21,6 +21,8 @@ GameObject:
   - 4: {fileID: 4000010189868520}
   - 212: {fileID: 212000012822974072}
   - 95: {fileID: 95000012199574528}
+  - 114: {fileID: 114000010855419486}
+  - 50: {fileID: 50000010714451040}
   m_Layer: 0
   m_Name: ele_ball_mix
   m_TagString: Untagged
@@ -41,6 +43,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000010714451040
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011212190812}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!95 &95000012199574528
 Animator:
   serializedVersion: 3
@@ -50,7 +69,7 @@ Animator:
   m_GameObject: {fileID: 1000011212190812}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6571455a8bd67c24a9015b2efd20a062, type: 2}
+  m_Controller: {fileID: 9100000, guid: b6399739e74085b4da878a9d463b6f0f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -58,6 +77,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010855419486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011212190812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82867211349bfc24d9587e58a9ff04de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  projectileSpeed: 1
+  damage: 5
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
 --- !u!212 &212000012822974072
 SpriteRenderer:
   m_ObjectHideFlags: 1
