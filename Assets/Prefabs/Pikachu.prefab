@@ -122,6 +122,7 @@ MonoBehaviour:
   FreeTraversing: 0
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  RotatingOnlyInX: 1
   SelfAnimating: 1
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
