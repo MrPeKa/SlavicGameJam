@@ -4,13 +4,14 @@
     {
         public class Tags
         {
-            public const string SomeDefaultTag = "TAG";
+            public const string Player = "Player";
         }
 
         public class Constants
         {
             public const string RoomBackgroundChild = "background";
-            public const string SomeDefaultConstant = "CONSTANT";
+            public const string StartRoom = "Start Room";
+            public const string PlayerName = "player";
 
             public const string INTRO = "Intro";
             public const string HIT = "Hit";
@@ -36,8 +37,6 @@
             public const string PIKACHU = "Pikachu";
             public const string PAMELA = "Pamela";
         }
-
-        
     }
 
     public enum RoomSound
