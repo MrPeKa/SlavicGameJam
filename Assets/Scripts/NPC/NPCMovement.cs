@@ -81,7 +81,7 @@ namespace Assets.Scripts.NPC
                 }
             }
 
-            (npcInfo.HealthPoints <= 0)
+            if (npcInfo.HealthPoints <= 0)
                 Dying();
         }
 
