@@ -9,6 +9,7 @@
 
         public class Constants
         {
+            public const string RoomBackgroundChild = "background";
             public const string SomeDefaultConstant = "CONSTANT";
         }
     }

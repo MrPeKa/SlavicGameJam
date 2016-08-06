@@ -331,6 +331,7 @@ MonoBehaviour:
   - {fileID: 1000012896800830, guid: 287b928b368a65b4c93fae166f7a0f6b, type: 2}
   - {fileID: 1000011208377868, guid: d20c14acf1703ae439bc47546a4da3b4, type: 2}
   - {fileID: 1000011474934820, guid: 1fb984986752cd74296287a66fc8c18a, type: 2}
+  - {fileID: 1000011213992060, guid: 07fc8f4bc15bb31459c3cd86d3f0da88, type: 2}
   MainCorridorSprite: {fileID: 21300000, guid: e05ca3e0f534f7849ad042aea4941a96, type: 3}
   CorridorsContainer: {fileID: 2002934716}
   VerticalLevel: 0

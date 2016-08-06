@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: c215ca49485f3c345a2aa0afdff40592
+timeCreated: 1470444598
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: pokemon_room_pack_0
+    21300002: pokemon_room_pack_1
+    21300004: pokemon_room_pack_2
+    21300006: pokemon_room_pack_3
+    21300008: pokemon_room_pack_4
+    21300010: pokemon_room_pack_5
+    21300012: pokemon_room_pack_6
+    21300014: pokemon_room_pack_7
+    21300016: pokemon_room_pack_8
+    21300018: pokemon_room_pack_9
+    21300020: pokemon_room_pack_10
+    21300022: pokemon_room_pack_11
+    21300024: pokemon_room_pack_12
+    21300026: pokemon_room_pack_13
+    21300028: pokemon_room_pack_14
+    21300030: pokemon_room_pack_15
+    21300032: pokemon_room_pack_16
+    21300034: pokemon_room_pack_17
+    21300036: pokemon_room_pack_18
+    21300038: pokemon_room_pack_19
+    21300040: pokemon_room_pack_20
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pokemon_room_pack_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 390
+        width: 74
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 522
+        width: 82
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_2
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 390
+        width: 278
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_3
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 390
+        width: 259
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_4
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 395
+        width: 273
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_5
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 389
+        width: 253
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_6
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 383
+        width: 253
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_7
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 419
+        width: 64
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_8
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 442
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_9
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 437
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_10
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 428
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_11
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 447
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_12
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 421
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_13
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 409
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_14
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 426
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_15
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 385
+        width: 60
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_16
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 391
+        width: 34
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_17
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 24
+        width: 465
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_18
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 247
+        width: 89
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_19
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 182
+        width: 86
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pokemon_room_pack_20
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 105
+        width: 94
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

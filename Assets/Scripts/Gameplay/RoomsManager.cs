@@ -77,6 +77,7 @@ namespace Assets.Scripts.Gameplay
 
             var spriteRenderer = corridor.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = _corridorSprite;
+            spriteRenderer.sortingOrder = -2;
         }
 
         private void GenerateRoomsHorizontally(List<Room> rooms, int minDistanceBetweenRooms, int maxDistanceBetweenRooms)

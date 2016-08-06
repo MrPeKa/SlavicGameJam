@@ -35,7 +35,13 @@ namespace Assets.Scripts.Gameplay
 
         public static Vector2 GetSize(this GameObject gameObject)
         {
-            return gameObject.GetComponent<SpriteRenderer>().bounds.size;
+            var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            if (spriteRenderer == null)
+            {
+                return gameObject.transform.FindChild(GameplayServices.Constants.RoomBackgroundChild).GetComponent<SpriteRenderer>().bounds.size;
+            }
+
+            return spriteRenderer.bounds.size;
         }
 
         public static void SetName(this GameObject gameObject, string name)
