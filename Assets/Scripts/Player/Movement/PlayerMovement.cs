@@ -39,12 +39,33 @@ namespace Assets.Scripts.Player.Movement
             return Input.GetAxis(axisName) * playerSpeed;
         }
 
-        private void Flip()
+        private void FlipRight()
         {
-            var localScale = transform.localScale;
-            facingRight = !facingRight;
-            localScale.x *= -1;
-            transform.localScale = localScale;
+            facingTop = false;
+            facingRight = true;
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        private void FlipLeft()
+        {
+            facingTop = true;
+            facingRight = false;
+            transform.eulerAngles = new Vector3(0, 0, 180);
+        }
+
+
+        private void FlipUp()
+        {
+            facingTop = true;
+            facingRight = true;
+            transform.eulerAngles = new Vector3(0, 0, 90);
+        }
+
+        private void FlipDown()
+        {
+            facingTop = false;
+            facingRight = false;
+            transform.eulerAngles = new Vector3(0, 0, 270);
         }
 
         private void HandleMovement()
@@ -59,8 +80,14 @@ namespace Assets.Scripts.Player.Movement
         {
             rb.velocity = new Vector2(newXSpeed, newYSpeed);
 
-            if ((newXSpeed > 0 && !facingRight) || (newXSpeed < 0 && facingRight))
-                Flip();
+            if(newYSpeed>0)
+                FlipUp();
+            if(newYSpeed<0)
+                FlipDown();
+            if(newXSpeed>0)
+                FlipRight();
+            if(newXSpeed<0)
+                FlipLeft();
         }
                 
 
