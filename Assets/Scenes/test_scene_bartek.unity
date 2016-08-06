@@ -255,7 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 1056687192}
   triggerSource: {fileID: 2069285533}
-  cameraSize: 4
+  CloseCameraSize: 0
+  FarCameraSize: 0
   scaleDuration: 0.33
 --- !u!1 &361539518
 GameObject:
@@ -462,6 +463,9 @@ GameObject:
   - 4: {fileID: 1009068517}
   - 212: {fileID: 1009068516}
   - 95: {fileID: 1009068515}
+  - 50: {fileID: 1009068519}
+  - 61: {fileID: 1009068518}
+  - 114: {fileID: 1009068520}
   m_Layer: 0
   m_Name: player_5
   m_TagString: Untagged
@@ -531,7 +535,53 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
+--- !u!61 &1009068518
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009068514}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.65, y: 2}
+--- !u!50 &1009068519
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009068514}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1009068520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009068514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65cdcad221f0ea9409c7b3c0ccc6b7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 5
+  isSlowed: 0
+  playerInfo: {fileID: 0}
+  playerDetection: {fileID: 0}
 --- !u!1 &1056687192
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,8 +667,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 2069285535}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1985213132
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 1056687192}
   triggerSource: {fileID: 2069285533}
-  cameraSize: 4
+  CloseCameraSize: 0
+  FarCameraSize: 0
   scaleDuration: 0.33
 --- !u!1 &2054399530
 GameObject:
@@ -792,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2069285534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -836,10 +887,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1056687197}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &2069285536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
+  isSlowed: 0
   playerInfo: {fileID: 0}
   playerDetection: {fileID: 0}
 --- !u!50 &2069285537
