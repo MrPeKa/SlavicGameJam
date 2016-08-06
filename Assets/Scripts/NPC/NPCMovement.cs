@@ -15,6 +15,7 @@ namespace Assets.Scripts.NPC
         [SerializeField] public bool FreeTraversing = true;
         [SerializeField] public GameObject TargetToAttack;
         [SerializeField] public bool Targeting;
+        [SerializeField] public bool RotatingOnlyInX = false;
 
         public bool SelfAnimating;
 
@@ -102,8 +103,8 @@ namespace Assets.Scripts.NPC
 
             if (SelfAnimating)
             {
-                anim.SetFloat("MoveX", Input.GetAxis("Horizontal"));
-                anim.SetFloat("MoveY", Input.GetAxis("Vertical"));
+                anim.SetFloat("MoveX", newX);
+                anim.SetFloat("MoveY", newY);
                 anim.SetBool("IsMoving", true);
             }
         }
@@ -201,17 +202,20 @@ namespace Assets.Scripts.NPC
         private void CheckDirectionInTargeting()
         {
             var direct = transform.position - TargetToAttack.transform.position;
-            if (Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0)
+            bool isXGreaterThanY = Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0;
+            if (isXGreaterThanY)
             {
                 if (direct.x > 0)
                     FlipLeft();
                 else
                     FlipRight();
             }
-            else if (direct.y < 0)
-                FlipUp();
-            else
-                FlipDown();
+            if (!isXGreaterThanY && !RotatingOnlyInX) { 
+                if (direct.y < 0)
+                    FlipUp();
+                else
+                    FlipDown();
+            }
 
 
         }
