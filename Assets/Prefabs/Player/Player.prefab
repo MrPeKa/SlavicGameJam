@@ -188,7 +188,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.78
+  m_Radius: 0.53
 --- !u!61 &61000011119092904
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -212,7 +212,7 @@ Animator:
   m_GameObject: {fileID: 1000010235720252}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 196a987e5b916c14dabb3ade80770e4b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
+  isSlowed: 0
   playerInfo: {fileID: 0}
   playerDetection: {fileID: 0}
 --- !u!114 &114000011733060254
@@ -246,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpponentInRange: 0
-  listOfOpponentsInRange: []
+  ListOfOpponentsInRange: []
 --- !u!114 &114000013507102382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,9 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f601c22f21ce894392bec6ba41ed0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealthPoints: 100
   HealthPoints: 100
-  DamageMelee: 20
-  DamageRanged: 30
+  Damage: 20
   IsMelee: 1
   Characters:
   - {fileID: 0}
