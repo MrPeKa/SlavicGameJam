@@ -6,10 +6,9 @@ namespace Assets.Scripts.Player.PlayerManagement
 {
     public class PlayerInfo : MonoBehaviour
     {
-
+        [SerializeField] public float MaxHealthPoints = 100f;
         [SerializeField] public float HealthPoints = 100f;
-        [SerializeField] public float DamageMelee = 20f;
-        [SerializeField] public float DamageRanged = 30f;
+        [SerializeField] public float Damage = 20f;
         [SerializeField] public bool IsMelee = true;
         public GameObject[] Characters = new GameObject[4];
 
@@ -48,14 +47,9 @@ namespace Assets.Scripts.Player.PlayerManagement
             HealthPoints = value;
         }
 
-        public void ChangeDamageMelee(float value)
+        public void ChangeDamage(float value)
         {
-            DamageMelee = value;
-        }
-
-        public void ChangeDamageRanged(float value)
-        {
-            DamageRanged = value;
+            Damage = value;
         }
 
         public void ChangeCharacter(TypeOfCharacter type)
@@ -63,16 +57,12 @@ namespace Assets.Scripts.Player.PlayerManagement
             _currentLook = type;
             Animator.runtimeAnimatorController = type.AnimatorOverride;
             if (type.IsMelee)
-            {
                 IsMelee = true;
-                DamageMelee = type.Damage;
-            }
             else
-            {
                 IsMelee = false;
-                DamageRanged = type.Damage;
+                Damage = type.Damage;
             }
         }
 
     }
-}
+

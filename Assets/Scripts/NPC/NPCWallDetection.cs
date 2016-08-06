@@ -1,15 +1,15 @@
-﻿using Assets.Scripts.NPC;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class NPCWallDetection : MonoBehaviour {
-
-
-    void OnTriggerEnter2D(Collider2D other)
+namespace Assets.Scripts.NPC
+{
+    public class NPCWallDetection : MonoBehaviour
     {
-        if (other.CompareTag("npc"))
+        void OnTriggerEnter2D(Collider2D other)
         {
-            other.gameObject.GetComponent<NPCMovement>().ChangeDirection();
+            if (other.CompareTag("npc"))
+            {
+                other.gameObject.GetComponent<NPCMovement>().ChangeDirection();
+            }
         }
     }
-
 }

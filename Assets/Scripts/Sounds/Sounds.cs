@@ -21,6 +21,10 @@ public class Sounds : MonoBehaviour {
         string path = null;
         switch (soundComponentName)
         {
+            case RoomSound.NORMAL:
+                path = GameplayServices.Constants.SOUNDS_PATH + GameplayServices.Constants.NORMAL;
+                break;
+
             case RoomSound.POKEMON:
                 path = GameplayServices.Constants.POKEMON_CLIPS_PATH + GameplayServices.Constants.POKEMON;
                 break;
@@ -45,21 +49,33 @@ public class Sounds : MonoBehaviour {
         return path;
     }
 
-    private string GetClipPath(Characters boss)
+    private string GetClipPath(Creatures boss)
     {
         string path = null;
         switch (boss)
         {
-            case Characters.PLAYER:
+            case Creatures.PLAYER:
                 path = GameplayServices.Constants.PLAYER_CLIPS_PATH + GameplayServices.Constants.PLAYER;
                 break;
 
-            case Characters.PIKACHU:
+            case Creatures.PIKACHU:
                 path = GameplayServices.Constants.POKEMON_CLIPS_PATH + GameplayServices.Constants.PIKACHU + "/" + GameplayServices.Constants.PIKACHU;
                 break;
 
-            case Characters.PAMELA:
+            case Creatures.PAMELA:
                 path = GameplayServices.Constants.BAY_WATCH_CLIPS_PATH + GameplayServices.Constants.PAMELA + "/" + GameplayServices.Constants.PAMELA;
+                break;
+
+            case Creatures.NORMAL1:
+                path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.NORMAL1 + "/" + GameplayServices.Constants.NORMAL1;
+                break;
+
+            case Creatures.MEDIUM1:
+                path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.MEDIUM1 + "/" + GameplayServices.Constants.MEDIUM1;
+                break;
+
+            case Creatures.HARD1:
+                path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.HARD1 + "/" + GameplayServices.Constants.HARD1;
                 break;
 
             default:
@@ -77,6 +93,7 @@ public class Sounds : MonoBehaviour {
             clipPath += clipKind;
             audioSource.clip = Resources.Load<AudioClip>(clipPath);
             audioSource.volume = _nonIntroVolume;
+            audioSource.loop = false;
         }
     }
     
@@ -90,6 +107,7 @@ public class Sounds : MonoBehaviour {
     {
         SetClip(GetClipPath(soundComponentName), GameplayServices.Constants.INTRO);
         audioSource.volume = _introVolume;
+        audioSource.loop = true;
     }
 
     private void StopAudioSource()
@@ -115,22 +133,22 @@ public class Sounds : MonoBehaviour {
         StopAudioSource();
     }
 
-    public void PlayDeadSound(Characters character)
+    public void PlayDeadSound(Creatures character)
     {
         SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.DEAD);
     }
 
-    public void PlayHitSound(Characters character)
+    public void PlayHitSound(Creatures character)
     {
         SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.HIT);
     }
 
-    public void PlayGetHitSound(Characters character)
+    public void PlayGetHitSound(Creatures character)
     {
         SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.GET_HIT);
     }
 
-    public void PlayFootStepsSound(Characters character)
+    public void PlayFootStepsSound(Creatures character)
     {
         SetClipAndPlay(GetClipPath(character), GameplayServices.Constants.FOOTSTEPS);
     }

@@ -12,22 +12,27 @@ public class SoundsTest : MonoBehaviour {
 
     public void PlayPlayerHitSound()
     {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Characters.PLAYER);
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
     }
 
     public void PlayPlayerGetHitSound()
     {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Characters.PLAYER);
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
     }
 
     public void PlayPlayerDeadSound()
     {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Characters.PLAYER);
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
     }
 
     public void PlayPlayerFootStepsSound()
     {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.PLAYER);
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
+    }
+
+    public void PlayNormalBackgroundSound()
+    {
+        sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.NORMAL);
     }
 
     public void PlayPokemonRoomIntroSound()
@@ -52,41 +57,101 @@ public class SoundsTest : MonoBehaviour {
 
     public void PlayPokemonPikachuHitSound()
     {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Characters.PIKACHU);
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
     }
 
     public void PlayPokemonPikachuGetHitSound()
     {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Characters.PIKACHU);
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
     }
 
     public void PlayPokemonPikachuDeadSound()
     {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Characters.PIKACHU);
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
     }
 
     public void PlayPokemonPikachuFootStepsSound()
     {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.PIKACHU);
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
     }
 
     public void PlayBayWatchPamelaHitSound()
     {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Characters.PAMELA);
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
     }
 
     public void PlayBayWatchPamelaGetHitSound()
     {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Characters.PAMELA);
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
     }
 
     public void PlayBayWatchPamelaDeadSound()
     {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Characters.PAMELA);
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
     }
 
     public void PlayBayWatchPamelaFootStepsSound()
     {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Characters.PAMELA);
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
+    }
+
+    public void PlayNormal1HitSound()
+    {
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
+    }
+
+    public void PlayNormal1GetHitSound()
+    {
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
+    }
+
+    public void PlayNormal1DeadSound()
+    {
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
+    }
+
+    public void PlayNormal1FootStepsSound()
+    {
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
+    }
+
+    public void PlayMedium1HitSound()
+    {
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
+    }
+
+    public void PlayMedium1GetHitSound()
+    {
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
+    }
+
+    public void PlayMedium1DeadSound()
+    {
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
+    }
+
+    public void PlayMedium1FootStepsSound()
+    {
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
+    }
+
+    public void PlayHard1HitSound()
+    {
+        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.HARD1);
+    }
+
+    public void PlayHard1GetHitSound()
+    {
+        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.HARD1);
+    }
+
+    public void PlayHard1DeadSound()
+    {
+        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.HARD1);
+    }
+
+    public void PlayHard1FootStepsSound()
+    {
+        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.HARD1);
     }
 }
