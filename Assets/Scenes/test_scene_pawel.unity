@@ -518,6 +518,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -931,6 +935,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -1689,6 +1697,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -1941,6 +1953,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -3425,6 +3441,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -4544,6 +4564,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -4723,6 +4747,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -4998,6 +5026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 481500454}
   CorridorsToDeactivate: {fileID: 1421028648}
   ActivateRoom: 1
@@ -5254,7 +5283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 58000011620162758, guid: 1747b942c409f9b4faf58543ac5ac17c,
         type: 2}
@@ -6972,6 +7001,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -7514,6 +7547,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -8359,6 +8396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 481500454}
   CorridorsToDeactivate: {fileID: 1421028648}
   ActivateRoom: 0
@@ -8847,6 +8885,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -9474,7 +9516,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1321214267
 GameObject:
   m_ObjectHideFlags: 0
@@ -9621,6 +9663,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -10221,6 +10267,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -10373,6 +10423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 1421028648}
   CorridorsToDeactivate: {fileID: 481500454}
   ActivateRoom: 1
@@ -10744,6 +10795,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -11562,6 +11617,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -12930,6 +12989,10 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -13616,6 +13679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 1421028648}
   CorridorsToDeactivate: {fileID: 481500454}
   ActivateRoom: 0
@@ -14055,6 +14119,37 @@ Prefab:
     - target: {fileID: 4000014085160656, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011367495086, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: FreeTraversing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011367495086, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: IsFightingMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50000011815632338, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011367495086, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: LockPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011367495086, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: PrefabOfProjectile
+      value: 
+      objectReference: {fileID: 1000013480135276, guid: f72959c16dc481a4c8edf5d49cd85589,
+        type: 2}
+    - target: {fileID: 114000011367495086, guid: 148f3b02feb7f5a4ca369e548d0827ec,
+        type: 2}
+      propertyPath: ProjectileSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148f3b02feb7f5a4ca369e548d0827ec, type: 2}

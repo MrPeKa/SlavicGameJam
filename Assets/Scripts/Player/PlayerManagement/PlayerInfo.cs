@@ -62,7 +62,12 @@ namespace Assets.Scripts.Player.PlayerManagement
                 IsMelee = false;
                 Damage = type.Damage;
             }
+
+        public void ApplyDamage(float damage)
+        {
+            GetDamage(damage);
         }
+    }
 
     }
 
