@@ -6475,6 +6475,10 @@ Prefab:
       propertyPath: triggerSource
       value: 
       objectReference: {fileID: 1049921904}
+    - target: {fileID: 1000010940363546, guid: fabefec1f53f3304d820768a4486e4b1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fabefec1f53f3304d820768a4486e4b1, type: 2}
   m_IsPrefabParent: 0
