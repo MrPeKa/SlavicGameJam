@@ -110,8 +110,9 @@ namespace Assets.Scripts.NPC
         private void Dying()
         {
             Debug.Log("Object destroyed" + this);
-            //var deadBody = Instantiate(Resources.Load(), this.transform.position, this.transform.rotation);
-            Destroy(gameObject,1);
+            var deadBody = Instantiate(Resources.Load("Dead"), this.transform.position, this.transform.rotation);
+            DestroyObject(deadBody,0.5f);
+            Destroy(gameObject,0.2f);
         }
 
         //APPLY MUSIC OF MOVING NPC

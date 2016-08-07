@@ -18,7 +18,7 @@ namespace Assets.Scripts.NPC
         public void InitalizeBullet(GameObject target, float projectileSpeed, float damage)
         {
             this.target = target;
-            direction = target.transform.position + new Vector3(0,0.5f,0);
+            direction = target.transform.position + new Vector3(-1f,-1f,0);
             this.projectileSpeed = projectileSpeed;
             this.damage = damage;
         }
