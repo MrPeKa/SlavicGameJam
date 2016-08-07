@@ -1,157 +1,160 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class SoundsTest : MonoBehaviour {
-
-    private Sounds sounds;
-
-    void Awake()
+namespace Assets.Scripts.Sounds
+{
+    public class SoundsTest : MonoBehaviour
     {
-        sounds = GetComponent<Sounds>();
-    }
 
-    public void PlayPlayerHitSound()
-    {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
-    }
+        private Sounds _sounds;
 
-    public void PlayPlayerGetHitSound()
-    {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
-    }
+        void Awake()
+        {
+            _sounds = GetComponent<Sounds>();
+        }
 
-    public void PlayPlayerDeadSound()
-    {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
-    }
+        public void PlayPlayerHitSound()
+        {
+            _sounds.PlayHitSound(Gameplay.Creatures.PLAYER);
+        }
 
-    public void PlayPlayerFootStepsSound()
-    {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.PLAYER);
-    }
+        public void PlayPlayerGetHitSound()
+        {
+            _sounds.PlayGetHitSound(Gameplay.Creatures.PLAYER);
+        }
 
-    public void PlayNormalBackgroundSound()
-    {
-        sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.NORMAL);
-    }
+        public void PlayPlayerDeadSound()
+        {
+            _sounds.PlayDeadSound(Gameplay.Creatures.PLAYER);
+        }
 
-    public void PlayPokemonRoomIntroSound()
-    {
-        sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.POKEMON);
-    }
+        public void PlayPlayerFootStepsSound()
+        {
+            _sounds.PlayFootStepsSound(Gameplay.Creatures.PLAYER);
+        }
 
-    public void PlayBayWatchRoomIntroSound()
-    {
-        sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.BAY_WATCH);
-    }
+        public void PlayNormalBackgroundSound()
+        {
+            _sounds.PlayRoomIntroSound(Gameplay.RoomSound.NORMAL);
+        }
 
-    public void PlayPowerRangersRoomIntroSound()
-    {
-        sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.POWER_RANGERS);
-    }
+        public void PlayPokemonRoomIntroSound()
+        {
+            _sounds.PlayRoomIntroSound(Gameplay.RoomSound.POKEMON);
+        }
 
-    public void PlayDiscoRoomIntroSoundTest()
-    {
-        sounds.PlayRoomIntroSound(Assets.Scripts.Gameplay.RoomSound.DISCO);
-    }
+        public void PlayBayWatchRoomIntroSound()
+        {
+            _sounds.PlayRoomIntroSound(Gameplay.RoomSound.BAY_WATCH);
+        }
 
-    public void PlayPokemonPikachuHitSound()
-    {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
-    }
+        public void PlayPowerRangersRoomIntroSound()
+        {
+            _sounds.PlayRoomIntroSound(Gameplay.RoomSound.POWER_RANGERS);
+        }
 
-    public void PlayPokemonPikachuGetHitSound()
-    {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
-    }
+        public void PlayDiscoRoomIntroSoundTest()
+        {
+            _sounds.PlayRoomIntroSound(Gameplay.RoomSound.DISCO);
+        }
 
-    public void PlayPokemonPikachuDeadSound()
-    {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
-    }
+        public void PlayPokemonPikachuHitSound()
+        {
+            _sounds.PlayHitSound(Gameplay.Creatures.PIKACHU);
+        }
 
-    public void PlayPokemonPikachuFootStepsSound()
-    {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.PIKACHU);
-    }
+        public void PlayPokemonPikachuGetHitSound()
+        {
+            _sounds.PlayGetHitSound(Gameplay.Creatures.PIKACHU);
+        }
 
-    public void PlayBayWatchPamelaHitSound()
-    {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
-    }
+        public void PlayPokemonPikachuDeadSound()
+        {
+            _sounds.PlayDeadSound(Gameplay.Creatures.PIKACHU);
+        }
 
-    public void PlayBayWatchPamelaGetHitSound()
-    {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
-    }
+        public void PlayPokemonPikachuFootStepsSound()
+        {
+            _sounds.PlayFootStepsSound(Gameplay.Creatures.PIKACHU);
+        }
 
-    public void PlayBayWatchPamelaDeadSound()
-    {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
-    }
+        public void PlayBayWatchPamelaHitSound()
+        {
+            _sounds.PlayHitSound(Gameplay.Creatures.PAMELA);
+        }
 
-    public void PlayBayWatchPamelaFootStepsSound()
-    {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.PAMELA);
-    }
+        public void PlayBayWatchPamelaGetHitSound()
+        {
+            _sounds.PlayGetHitSound(Gameplay.Creatures.PAMELA);
+        }
 
-    public void PlayNormal1HitSound()
-    {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
-    }
+        public void PlayBayWatchPamelaDeadSound()
+        {
+            _sounds.PlayDeadSound(Gameplay.Creatures.PAMELA);
+        }
 
-    public void PlayNormal1GetHitSound()
-    {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
-    }
+        public void PlayBayWatchPamelaFootStepsSound()
+        {
+            _sounds.PlayFootStepsSound(Gameplay.Creatures.PAMELA);
+        }
 
-    public void PlayNormal1DeadSound()
-    {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
-    }
+        public void PlayNormal1HitSound()
+        {
+            _sounds.PlayHitSound(Gameplay.Creatures.NORMAL1);
+        }
 
-    public void PlayNormal1FootStepsSound()
-    {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.NORMAL1);
-    }
+        public void PlayNormal1GetHitSound()
+        {
+            _sounds.PlayGetHitSound(Gameplay.Creatures.NORMAL1);
+        }
 
-    public void PlayMedium1HitSound()
-    {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
-    }
+        public void PlayNormal1DeadSound()
+        {
+            _sounds.PlayDeadSound(Gameplay.Creatures.NORMAL1);
+        }
 
-    public void PlayMedium1GetHitSound()
-    {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
-    }
+        public void PlayNormal1FootStepsSound()
+        {
+            _sounds.PlayFootStepsSound(Gameplay.Creatures.NORMAL1);
+        }
 
-    public void PlayMedium1DeadSound()
-    {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
-    }
+        public void PlayMedium1HitSound()
+        {
+            _sounds.PlayHitSound(Gameplay.Creatures.MEDIUM1);
+        }
 
-    public void PlayMedium1FootStepsSound()
-    {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.MEDIUM1);
-    }
+        public void PlayMedium1GetHitSound()
+        {
+            _sounds.PlayGetHitSound(Gameplay.Creatures.MEDIUM1);
+        }
 
-    public void PlayHard1HitSound()
-    {
-        sounds.PlayHitSound(Assets.Scripts.Gameplay.Creatures.HARD1);
-    }
+        public void PlayMedium1DeadSound()
+        {
+            _sounds.PlayDeadSound(Gameplay.Creatures.MEDIUM1);
+        }
 
-    public void PlayHard1GetHitSound()
-    {
-        sounds.PlayGetHitSound(Assets.Scripts.Gameplay.Creatures.HARD1);
-    }
+        public void PlayMedium1FootStepsSound()
+        {
+            _sounds.PlayFootStepsSound(Gameplay.Creatures.MEDIUM1);
+        }
 
-    public void PlayHard1DeadSound()
-    {
-        sounds.PlayDeadSound(Assets.Scripts.Gameplay.Creatures.HARD1);
-    }
+        public void PlayHard1HitSound()
+        {
+            _sounds.PlayHitSound(Gameplay.Creatures.HARD1);
+        }
 
-    public void PlayHard1FootStepsSound()
-    {
-        sounds.PlayFootStepsSound(Assets.Scripts.Gameplay.Creatures.HARD1);
+        public void PlayHard1GetHitSound()
+        {
+            _sounds.PlayGetHitSound(Gameplay.Creatures.HARD1);
+        }
+
+        public void PlayHard1DeadSound()
+        {
+            _sounds.PlayDeadSound(Gameplay.Creatures.HARD1);
+        }
+
+        public void PlayHard1FootStepsSound()
+        {
+            _sounds.PlayFootStepsSound(Gameplay.Creatures.HARD1);
+        }
     }
 }

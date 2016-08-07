@@ -15,6 +15,12 @@ namespace Assets.Scripts.NPC
         [SerializeField] public bool FreeTraversing = true;
         [SerializeField] public GameObject TargetToAttack;
         [SerializeField] public bool Targeting;
+        [SerializeField] public bool LockPos;
+        [SerializeField] public float ProjectileSpeed = 0.3f;
+        [SerializeField] public GameObject PrefabOfProjectile;
+        [SerializeField] public bool OnlyMirrorRotating = false;
+        [SerializeField] public bool StopBeforeShoot = false;
+
 
         public bool SelfAnimating;
 
@@ -50,35 +56,50 @@ namespace Assets.Scripts.NPC
             TargetToAttack = GameObject.FindWithTag("Player");
             StartCoroutine(CheckDirectionCoroutine());
             ResetTarget();
-
         }
+
 
         void Update()
         {
-            if (SelfAnimating)
+            if (SelfAnimating && !LockPos)
             {
                 anim.SetBool("IsMoving", false);
                 anim.SetFloat("LastMoveX", _directionX);
                 anim.SetFloat("LastMoveY", _directionY);
             }
 
-            if (!_isChangingDirection && !Targeting)
+            if (!_isChangingDirection && !Targeting && !LockPos)
                 Move();
             if (!FreeTraversing)
             {
                 CheckDirectionInTargeting();
-                MoveToTheTarget(TargetToAttack);
-                if (IsFightingMelee)
+                if(!LockPos)
+                    MoveToTheTarget(TargetToAttack);
+
+                if (_cooldownTime.Elapsed.Milliseconds <= 0f)
                 {
-                    if (_cooldownTime.Elapsed.Milliseconds<=0f)
+                    _cooldownTime.Reset();
+                    _cooldownTime.Start();
+                    if (IsFightingMelee)
                     {
-                        _cooldownTime.Reset();
-                        _cooldownTime.Start();
                         AttactMelee(TargetToAttack);
                     }
-                    else if(_cooldownTime.Elapsed.Seconds>=CoolDownLimitAttact)
-                        _cooldownTime.Reset();
+                    else
+                    {
+                        if (StopBeforeShoot)
+                        {
+                            LockPos = true;
+                        }
+                        AttactRanged(TargetToAttack);
+                        if (StopBeforeShoot)
+                        {
+                            LockPos = false;
+                        }
+                    }
                 }
+                else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
+                    _cooldownTime.Reset();
+
             }
 
             if (npcInfo.HealthPoints <= 0)
@@ -100,10 +121,10 @@ namespace Assets.Scripts.NPC
 
             transform.position = new Vector2(newX, newY);
 
-            if (SelfAnimating)
+            if (SelfAnimating && !OnlyMirrorRotating)
             {
-                anim.SetFloat("MoveX", Input.GetAxis("Horizontal"));
-                anim.SetFloat("MoveY", Input.GetAxis("Vertical"));
+                anim.SetFloat("MoveX", newX);
+                anim.SetFloat("MoveY", newY);
                 anim.SetBool("IsMoving", true);
             }
         }
@@ -145,7 +166,20 @@ namespace Assets.Scripts.NPC
         void AttactMelee(GameObject target)
         {
             PlayerInfo player = target.GetComponent<PlayerInfo>();
-            player.GetDamage(npcInfo.Damage);
+            player.ApplyDamage(npcInfo.Damage);
+        }
+
+        void AttactRanged(GameObject target)
+        {
+            PlayerInfo player = target.GetComponent<PlayerInfo>();
+            FireBullet(target);
+        }
+
+        private void FireBullet(GameObject target)
+        {
+            GameObject projectile = Instantiate(PrefabOfProjectile, this.transform.position, this.transform.rotation) as GameObject;
+            if(projectile!=null)
+                projectile.GetComponent<Bullet>().InitalizeBullet(target, ProjectileSpeed, npcInfo.Damage);
         }
 
         private void ResetTarget()
@@ -159,7 +193,7 @@ namespace Assets.Scripts.NPC
         IEnumerator CheckDirectionCoroutine()
         {
             var time = Random.Range(3, 6);
-            while (!Targeting)
+            while (!Targeting && !LockPos)
             {
                 ChangeDirection();
                 yield return new WaitForSeconds(time);
@@ -181,13 +215,12 @@ namespace Assets.Scripts.NPC
             _directionY = newDirectY;
             _isChangingDirection = false;
 
-            if (SelfAnimating)
+            if (SelfAnimating || OnlyMirrorRotating)
             {
                 Move();
                 return;
             }
-
-                
+          
             if(_directionY>0)
                 FlipUp();
             if(_directionX>0)
@@ -201,17 +234,31 @@ namespace Assets.Scripts.NPC
         private void CheckDirectionInTargeting()
         {
             var direct = transform.position - TargetToAttack.transform.position;
-            if (Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0)
+            if (!OnlyMirrorRotating)
             {
-                if (direct.x > 0)
-                    FlipLeft();
+                if (Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0)
+                {
+                    if (direct.x > 0)
+                        FlipLeft();
+                    else
+                        FlipRight();
+                }
+                else if (direct.y < 0)
+                    FlipUp();
                 else
-                    FlipRight();
+                    FlipDown();
             }
-            else if (direct.y < 0)
-                FlipUp();
             else
-                FlipDown();
+            {
+                if(direct.x < 0)
+                {
+                    FlipRightMirror();
+                }
+                else if (direct.x > 0)
+                {
+                    FlipLeftMirror();
+                }
+            }
 
 
         }
@@ -234,6 +281,16 @@ namespace Assets.Scripts.NPC
         private void FlipDown()
         {
             transform.eulerAngles = new Vector3(0, 0, 270);
+        }
+
+        private void FlipLeftMirror()
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        private void FlipRightMirror()
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
     }
