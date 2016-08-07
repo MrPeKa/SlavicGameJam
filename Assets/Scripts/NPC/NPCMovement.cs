@@ -110,6 +110,7 @@ namespace Assets.Scripts.NPC
         private void Dying()
         {
             Debug.Log("Object destroyed" + this);
+            //var deadBody = Instantiate(Resources.Load(), this.transform.position, this.transform.rotation);
             Destroy(gameObject,1);
         }
 
