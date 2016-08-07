@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28e8de74e0019e46a99a59712a42c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 100
+  HealthPoints: 300
   Damage: 20
   IsMelee: 1
 --- !u!114 &114000012378733626
@@ -132,6 +132,7 @@ MonoBehaviour:
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
+  hasIdle: 1
 --- !u!212 &212000010424075168
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -69,14 +69,15 @@ namespace Assets.Scripts.Player.Movement
             playerInfo = GetComponent<PlayerInfo>();
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
-
-
+            
             _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
             _lastAttack = DateTime.Now;
+            _lastMove = DateTime.Now;
             _attackClip = SoundClipFetcher.HitSound(Creatures.PLAYER);
             _moveClip = SoundClipFetcher.GetFootStepsSound(Creatures.PLAYER);
-            _soundsManager.PlayerMoveSource.SetClip(_moveClip);
+            _npcGotHitClip = SoundClipFetcher.GetHitSound(Creatures.NORMAL1);
             _soundsManager.PlayerAttackSource.SetClip(_attackClip);
+            _soundsManager.PlayerMoveSource.SetClip(_moveClip);
         }
 
         void Update()
@@ -86,8 +87,10 @@ namespace Assets.Scripts.Player.Movement
         }
 
         private DateTime _lastAttack;
+        private DateTime _lastMove;
         private AudioClip _attackClip;
         private AudioClip _moveClip;
+        private AudioClip _npcGotHitClip;
 
         private float GetSpeedForAxis(string axisName)
         {
@@ -104,8 +107,6 @@ namespace Assets.Scripts.Player.Movement
 
         private void OnMove(float newXSpeed, float newYSpeed)
         {
-            _soundsManager.PlayerMoveSource.Play(1f, true);
-
             var lastVelocity = rb.velocity;
 
             if (lastVelocity.magnitude != 0)
@@ -120,6 +121,12 @@ namespace Assets.Scripts.Player.Movement
 
             Moving = (currentVelocity.magnitude != 0);
             rb.velocity = currentVelocity;
+
+            if (Moving && (DateTime.Now - _lastMove).Milliseconds >= 200f)
+            {
+                _lastMove = DateTime.Now;
+                _soundsManager.PlayerMoveSource.Play(0.1f, false);
+            } 
         }
                 
         private void HandleAttack()
@@ -142,12 +149,18 @@ namespace Assets.Scripts.Player.Movement
                     if (playerDetection.ListOfOpponentsInRange.Contains(opponent))
                     {
                         var npcInfo = opponent.GetComponent<NPCInfo>();
+
+                        if (playerInfo.Damage != 0)
+                        {
+                            _soundsManager.NPCEffectsSource.SetClip(_npcGotHitClip);
+                            _soundsManager.NPCEffectsSource.Play(0.08f, false);
+                        }
                         npcInfo.GetDamage(playerInfo.Damage);
                     }
                 }
             }
 
-            _soundsManager.PlayerAttackSource.Play(0.2f, false);
+            _soundsManager.PlayerAttackSource.Play(0.15f, false);
             animator.SetTrigger(ANIM_PARAM_ATTACKING);
         }
 

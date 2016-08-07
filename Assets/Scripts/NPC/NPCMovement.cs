@@ -12,15 +12,24 @@ namespace Assets.Scripts.NPC
     public class NPCMovement : MonoBehaviour
     {
 
-        [SerializeField] public float Speed = 0.0005f;
-        [SerializeField] public bool FreeTraversing = true;
-        [SerializeField] public GameObject TargetToAttack;
-        [SerializeField] public bool Targeting;
-        [SerializeField] public bool LockPos;
-        [SerializeField] public float ProjectileSpeed = 0.3f;
-        [SerializeField] public GameObject PrefabOfProjectile;
-        [SerializeField] public bool OnlyMirrorRotating = false;
-        [SerializeField] public bool StopBeforeShoot = false;
+        [SerializeField]
+        public float Speed = 0.0005f;
+        [SerializeField]
+        public bool FreeTraversing = true;
+        [SerializeField]
+        public GameObject TargetToAttack;
+        [SerializeField]
+        public bool Targeting;
+        [SerializeField]
+        public bool LockPos;
+        [SerializeField]
+        public float ProjectileSpeed = 0.3f;
+        [SerializeField]
+        public GameObject PrefabOfProjectile;
+        [SerializeField]
+        public bool OnlyMirrorRotating = false;
+        [SerializeField]
+        public bool StopBeforeShoot = false;
 
 
         public bool SelfAnimating;
@@ -33,6 +42,10 @@ namespace Assets.Scripts.NPC
         private int _directionX;
         private int _directionY = 1;
         private bool _isChangingDirection;
+        private Rigidbody2D rigidbody;
+        private Vector2 currentDirrection;
+        private float last_x;
+        private float last_y;
         public bool IsFightingMelee;
 
         public bool Arrived;
@@ -59,6 +72,7 @@ namespace Assets.Scripts.NPC
             if (SelfAnimating)
             {
                 anim = GetComponent<Animator>();
+                rigidbody = GetComponent<Rigidbody2D>();
             }
 
             npcInfo = gameObject.GetComponent<NPCInfo>();
@@ -67,43 +81,55 @@ namespace Assets.Scripts.NPC
             ResetTarget();
         }
 
+        private AudioClip _gotHitClip;
+        private AudioClip _dyingClip;
+
         void Start()
         {
             _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+            _gotHitClip = SoundClipFetcher.HitSound(Creatures.PLAYER);
+            _dyingClip = SoundClipFetcher.DeadSound(Creatures.HARD1);
         }
 
         void Update()
         {
-            if (activateAggresive!=null && activateAggresive.GoAttact)
+            if (activateAggresive != null && activateAggresive.GoAttact)
                 FreeTraversing = false;
-            if (activateAggresive!=null && !activateAggresive.GoAttact)
+            if (activateAggresive != null && !activateAggresive.GoAttact)
                 FreeTraversing = true;
-
-            if (SelfAnimating && !LockPos && hasIdle)
             {
-                anim.SetBool("IsMoving", false);
-                anim.SetFloat("LastMoveX", _directionX);
-                anim.SetFloat("LastMoveY", _directionY);
-            }
+                last_x = transform.position.x;
+                last_y = transform.position.y;
 
-            if (!_isChangingDirection && !Targeting && !LockPos)
-                Move();
-            if (!FreeTraversing)
-            {
-                CheckDirectionInTargeting();
-                if(!LockPos)
-                    MoveToTheTarget(TargetToAttack);
-
-                if (_cooldownTime.Elapsed.Milliseconds <= 0f)
+                if (SelfAnimating && !LockPos && hasIdle)
                 {
-                    _cooldownTime.Reset();
-                    _cooldownTime.Start();
-                    if (Arrived && IsFightingMelee)
+                    if ((Mathf.Abs(transform.position.x) - Mathf.Abs(last_x) == 0)
+                        && (Mathf.Abs(transform.position.y) - Mathf.Abs(last_y)) == 0)
                     {
-                        AttactMelee(TargetToAttack);
+                        anim.SetBool("IsMoving", false);
+                        anim.SetFloat("LastMoveX", currentDirrection.x);
+                        anim.SetFloat("LastMoveY", currentDirrection.y);
                     }
-                    else if (!IsFightingMelee)
+                }
+
+                if (!_isChangingDirection && !Targeting && !LockPos)
+                    Move();
+                if (!FreeTraversing)
+                {
+                    CheckDirectionInTargeting();
+                    if (!LockPos)
+                        MoveToTheTarget(TargetToAttack);
+
+                    if (_cooldownTime.Elapsed.Milliseconds <= 0f)
                     {
+                        _cooldownTime.Reset();
+                        _cooldownTime.Start();
+                        if (Arrived && IsFightingMelee)
+                        {
+                            AttactMelee(TargetToAttack);
+                        }
+                        else if (!IsFightingMelee)
+                        {
                             if (StopBeforeShoot)
                             {
                                 LockPos = true;
@@ -114,40 +140,74 @@ namespace Assets.Scripts.NPC
                                 LockPos = false;
                             }
                         }
- 
+
+                    }
+                    else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
+                        _cooldownTime.Reset();
+
                 }
-                else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
-                    _cooldownTime.Reset();
 
+                if (npcInfo.HealthPoints <= 0)
+                    Dying();
             }
-
-            if (npcInfo.HealthPoints <= 0)
-                Dying();
         }
 
         //APPLY MUSIC OF DYING
         private void Dying()
         {
-            Debug.Log("Object destroyed" + this);
+            _soundsManager.NPCEffectsSource.SetClip(_dyingClip);
+            _soundsManager.NPCEffectsSource.Play(0.1f, false);
+
             var deadBody = Instantiate(Resources.Load("Dead"), this.transform.position, this.transform.rotation);
-            DestroyObject(deadBody,0.5f);
-            Destroy(gameObject,0.2f);
+            DestroyObject(deadBody, 0.5f);
+            Destroy(gameObject, 0.2f);
         }
 
         //APPLY MUSIC OF MOVING NPC
         private void Move()
         {
-            var newX = transform.position.x + _directionX*Speed;
-            var newY = transform.position.y + _directionY*Speed;
+            var newX = transform.position.x + _directionX * Speed;
+            var newY = transform.position.y + _directionY * Speed;
 
             transform.position = new Vector2(newX, newY);
 
             if (SelfAnimating && !OnlyMirrorRotating)
             {
-                anim.SetFloat("MoveX", newX);
-                anim.SetFloat("MoveY", newY);
+                SetCurrentDirection(newX, newY);
+
                 anim.SetBool("IsMoving", true);
+                anim.SetFloat("MoveX", currentDirrection.x);
+                anim.SetFloat("MoveY", currentDirrection.y);
             }
+        }
+
+        private void SetCurrentDirection(float newX, float newY)
+        {
+                if (newX > last_x)
+                {
+                    currentDirrection.x = 1;
+                }
+                else if (newX < last_x)
+                {
+                    currentDirrection.x = -1;
+                }
+                else
+                {
+                    currentDirrection.x = 0;
+                }
+
+                if (newY < last_y)
+                {
+                    currentDirrection.y = -1;
+                }
+                else if (newY > last_y)
+                {
+                    currentDirrection.y = 1;
+                }
+                else
+                {
+                    currentDirrection.y = 0;
+                }
         }
 
         //APPLY MUSIC OF MOVING NPC
@@ -161,8 +221,8 @@ namespace Assets.Scripts.NPC
             }
             else
             {
-                float distCovered = (Time.time - _journeyTime)*Speed;
-                float fracJourney = distCovered/_journeyLength;
+                float distCovered = (Time.time - _journeyTime) * Speed;
+                float fracJourney = distCovered / _journeyLength;
                 transform.position = Vector3.LerpUnclamped(transform.position, target.transform.position, fracJourney);
             }
         }
@@ -199,7 +259,7 @@ namespace Assets.Scripts.NPC
         private void FireBullet(GameObject target)
         {
             GameObject projectile = Instantiate(PrefabOfProjectile, this.transform.position, this.transform.rotation) as GameObject;
-            if(projectile!=null)
+            if (projectile != null)
                 projectile.GetComponent<Bullet>().InitalizeBullet(target, ProjectileSpeed, npcInfo.Damage);
         }
 
@@ -240,14 +300,14 @@ namespace Assets.Scripts.NPC
                 Move();
                 return;
             }
-          
-            if(_directionY>0)
+
+            if (_directionY > 0)
                 FlipUp();
-            if(_directionX>0)
+            if (_directionX > 0)
                 FlipRight();
             if (_directionX < 0)
                 FlipLeft();
-            if(_directionY<0)
+            if (_directionY < 0)
                 FlipDown();
         }
 
@@ -270,7 +330,7 @@ namespace Assets.Scripts.NPC
             }
             else
             {
-                if(direct.x < 0)
+                if (direct.x < 0)
                 {
                     FlipRightMirror();
                 }
