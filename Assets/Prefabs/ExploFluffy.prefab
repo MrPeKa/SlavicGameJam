@@ -9,48 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000011261836182}
+  m_RootGameObject: {fileID: 1000010056945852}
   m_IsPrefabParent: 1
---- !u!1 &1000011261836182
+--- !u!1 &1000010056945852
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000011827735564}
-  - 212: {fileID: 212000012208109664}
-  - 95: {fileID: 95000012772240760}
+  - 4: {fileID: 4000010916280088}
+  - 212: {fileID: 212000011138345256}
+  - 95: {fileID: 95000014101337962}
   m_Layer: 0
-  m_Name: Bellsprout
+  m_Name: ExploFluffy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011827735564
+--- !u!4 &4000010916280088
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011261836182}
+  m_GameObject: {fileID: 1000010056945852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 0.04, z: 0}
+  m_LocalPosition: {x: -29.775846, y: 0.21919566, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!95 &95000012772240760
+--- !u!95 &95000014101337962
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011261836182}
+  m_GameObject: {fileID: 1000010056945852}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea2159899d51305478d75e6fa88d9fd5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1d09eb8a7141cd740948232add127b58, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -58,12 +58,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!212 &212000012208109664
+--- !u!212 &212000011138345256
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011261836182}
+  m_GameObject: {fileID: 1000010056945852}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: e2b823ded2648ae4cbf4f9f0fba2c3bd, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300016, guid: 61cb7ca92eec6c2469223082ba37a2d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
