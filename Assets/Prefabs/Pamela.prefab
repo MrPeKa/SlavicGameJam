@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 7
 --- !u!58 &58000013937606038
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.02
-  FreeTraversing: 1
+  FreeTraversing: 0
   TargetToAttack: {fileID: 0}
   Targeting: 0
   LockPos: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   StopBeforeShoot: 0
   SelfAnimating: 1
   npcInfo: {fileID: 114000013730954426}
-  IsFightingMelee: 0
+  IsFightingMelee: 1
   Arrived: 0
   CoolDownLimitAttact: 2
   activateAggresive: {fileID: 0}

@@ -3,7 +3,10 @@ using System.Diagnostics;
 using Assets.Scripts.Gameplay;
 using Assets.Scripts.Player.PlayerManagement;
 using Assets.Scripts.Sounds;
+using Assets.Scripts.UI.StartMenu;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.VR;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
@@ -155,6 +158,14 @@ namespace Assets.Scripts.NPC
         //APPLY MUSIC OF DYING
         private void Dying()
         {
+            if (this.name.Equals("Pamela(Clone)"))
+            {
+                var image = GameObject.Find("End").transform.FindChild("Image").GetComponent<Image>();
+                var color = Color.white;
+//                color.a = 1;
+                image.color = color;  
+
+            }
             _soundsManager.NPCEffectsSource.SetClip(_dyingClip);
             _soundsManager.NPCEffectsSource.Play(0.1f, false);
 
