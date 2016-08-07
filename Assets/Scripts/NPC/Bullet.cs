@@ -42,7 +42,12 @@ namespace Assets.Scripts.NPC
                 PlayerInfo player = target.GetComponent<PlayerInfo>();
                 player.ApplyDamage(damage);
                 animator.SetBool("Splash",true);
-                Destroy(gameObject,1);
+                Destroy(gameObject,0.3f);
+            }
+            if (other.CompareTag("Wall"))
+            {
+                animator.SetBool("Splash",true);
+                Destroy(gameObject, 1);
             }
         }
     }
