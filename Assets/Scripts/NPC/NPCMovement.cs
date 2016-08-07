@@ -313,8 +313,13 @@ namespace Assets.Scripts.NPC
 
         private void CheckDirectionInTargeting()
         {
+            if (SelfAnimating)
+            {
+                return;
+            }
+
             var direct = transform.position - TargetToAttack.transform.position;
-            if (!OnlyMirrorRotating)
+            if (!OnlyMirrorRotating && !SelfAnimating)
             {
                 if (Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0)
                 {
@@ -328,7 +333,7 @@ namespace Assets.Scripts.NPC
                 else
                     FlipDown();
             }
-            else
+            else if (OnlyMirrorRotating)
             {
                 if (direct.x < 0)
                 {
