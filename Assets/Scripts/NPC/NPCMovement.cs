@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Assets.Scripts.Gameplay;
 using Assets.Scripts.Player.PlayerManagement;
+using Assets.Scripts.Sounds;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
@@ -42,6 +43,8 @@ namespace Assets.Scripts.NPC
         private Stopwatch _cooldownTime;
         public float CoolDownLimitAttact = 2;
 
+        private SoundManager _soundsManager;
+
         void Awake()
         {
             _cooldownTime = new Stopwatch();
@@ -58,6 +61,10 @@ namespace Assets.Scripts.NPC
             ResetTarget();
         }
 
+        void Start()
+        {
+            _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+        }
 
         void Update()
         {
