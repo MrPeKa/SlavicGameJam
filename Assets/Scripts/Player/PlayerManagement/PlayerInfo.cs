@@ -65,6 +65,8 @@ namespace Assets.Scripts.Player.PlayerManagement
 
         public void ApplyDamage(float damage)
         {
+            var deadBody = Instantiate(Resources.Load("dmg"), this.transform.position, this.transform.rotation);
+            DestroyObject(deadBody, 0.5f);
             GetDamage(damage);
         }
     }

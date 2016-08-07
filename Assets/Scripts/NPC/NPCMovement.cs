@@ -194,7 +194,6 @@ namespace Assets.Scripts.NPC
 
         private void ResetTarget()
         {
-            FreeTraversing = true;
             Targeting = false;
             _journeyTime = 0;
             _journeyLength = 0;
