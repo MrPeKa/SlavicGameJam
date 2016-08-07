@@ -13,13 +13,13 @@ EditorBuildSettings:
     path: Assets/Scenes/main_scene.unity
   - enabled: 1
     path: Assets/Scenes/test_scene_pawel.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test_scene_przemek.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test_scene_lukasz.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test_scene_bartek.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test_scene_michal.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test_scene_youenn.unity
