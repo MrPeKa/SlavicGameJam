@@ -19,6 +19,7 @@ namespace Assets.Scripts.NPC
         [SerializeField] public float ProjectileSpeed = 0.3f;
         [SerializeField] public GameObject PrefabOfProjectile;
         [SerializeField] public bool OnlyMirrorRotating = false;
+        [SerializeField] public bool StopBeforeShoot = false;
 
 
         public bool SelfAnimating;
@@ -75,17 +76,29 @@ namespace Assets.Scripts.NPC
                 if(!LockPos)
                     MoveToTheTarget(TargetToAttack);
 
-                    if (_cooldownTime.Elapsed.Milliseconds<=0f)
+                if (_cooldownTime.Elapsed.Milliseconds <= 0f)
+                {
+                    _cooldownTime.Reset();
+                    _cooldownTime.Start();
+                    if (IsFightingMelee)
                     {
-                        _cooldownTime.Reset();
-                        _cooldownTime.Start();
-                        if(IsFightingMelee)
-                            AttactMelee(TargetToAttack);
-                        else
-                            AttactRanged(TargetToAttack);
+                        AttactMelee(TargetToAttack);
                     }
-                    else if(_cooldownTime.Elapsed.Seconds>=CoolDownLimitAttact)
-                        _cooldownTime.Reset();
+                    else
+                    {
+                        if (StopBeforeShoot)
+                        {
+                            LockPos = true;
+                        }
+                        AttactRanged(TargetToAttack);
+                        if (StopBeforeShoot)
+                        {
+                            LockPos = false;
+                        }
+                    }
+                }
+                else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
+                    _cooldownTime.Reset();
 
             }
 

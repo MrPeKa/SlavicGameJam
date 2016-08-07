@@ -118,15 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4747f222b190f7e4081bde594979e62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.01
+  Speed: 0.004
   FreeTraversing: 0
   TargetToAttack: {fileID: 0}
   Targeting: 0
   LockPos: 0
-  ProjectileSpeed: 3
+  ProjectileSpeed: 10
   PrefabOfProjectile: {fileID: 1000011212190812, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca,
     type: 2}
   OnlyMirrorRotating: 1
+  StopBeforeShoot: 1
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
