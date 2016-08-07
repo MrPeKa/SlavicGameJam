@@ -648,7 +648,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -1334,7 +1334,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -2218,7 +2218,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -2417,15 +2417,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012323267910, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
       propertyPath: m_LocalRotation.w
@@ -2437,14 +2437,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000012378733626, guid: ba1b0c65b3abb66498402a2a83b38019,
         type: 2}
-      propertyPath: PrefabOfProjectile
-      value: 
-      objectReference: {fileID: 1000011212190812, guid: 10b2d8eee6e2d6f4b8009198c52aa7ca,
-        type: 2}
-    - target: {fileID: 114000012378733626, guid: ba1b0c65b3abb66498402a2a83b38019,
-        type: 2}
-      propertyPath: SelfAnimating
-      value: 0
+      propertyPath: ProjectileSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
@@ -2936,7 +2930,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -4945,7 +4939,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -7131,7 +7125,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -7417,7 +7411,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -8184,11 +8178,6 @@ Prefab:
     - target: {fileID: 4000010807718448, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 58000011620162758, guid: 1747b942c409f9b4faf58543ac5ac17c,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1747b942c409f9b4faf58543ac5ac17c, type: 2}
@@ -11890,7 +11879,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -12857,7 +12846,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -14913,7 +14902,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -16033,7 +16022,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -16676,7 +16665,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -17411,7 +17400,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -18743,7 +18732,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
@@ -20954,7 +20943,7 @@ MonoBehaviour:
   LockPos: 0
   ProjectileSpeed: 0.3
   PrefabOfProjectile: {fileID: 0}
-  RotatingOnlyInX: 0
+  OnlyMirrorRotating: 0
   SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
