@@ -12,15 +12,24 @@ namespace Assets.Scripts.NPC
     public class NPCMovement : MonoBehaviour
     {
 
-        [SerializeField] public float Speed = 0.0005f;
-        [SerializeField] public bool FreeTraversing = true;
-        [SerializeField] public GameObject TargetToAttack;
-        [SerializeField] public bool Targeting;
-        [SerializeField] public bool LockPos;
-        [SerializeField] public float ProjectileSpeed = 0.3f;
-        [SerializeField] public GameObject PrefabOfProjectile;
-        [SerializeField] public bool OnlyMirrorRotating = false;
-        [SerializeField] public bool StopBeforeShoot = false;
+        [SerializeField]
+        public float Speed = 0.0005f;
+        [SerializeField]
+        public bool FreeTraversing = true;
+        [SerializeField]
+        public GameObject TargetToAttack;
+        [SerializeField]
+        public bool Targeting;
+        [SerializeField]
+        public bool LockPos;
+        [SerializeField]
+        public float ProjectileSpeed = 0.3f;
+        [SerializeField]
+        public GameObject PrefabOfProjectile;
+        [SerializeField]
+        public bool OnlyMirrorRotating = false;
+        [SerializeField]
+        public bool StopBeforeShoot = false;
 
 
         public bool SelfAnimating;
@@ -61,9 +70,14 @@ namespace Assets.Scripts.NPC
             ResetTarget();
         }
 
+        private AudioClip _gotHitClip;
+        private AudioClip _dyingClip;
+
         void Start()
         {
             _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+            _gotHitClip = SoundClipFetcher.HitSound(Creatures.PLAYER);
+            _dyingClip = SoundClipFetcher.DeadSound(Creatures.HARD1);
         }
 
         void Update()
@@ -80,7 +94,7 @@ namespace Assets.Scripts.NPC
             if (!FreeTraversing)
             {
                 CheckDirectionInTargeting();
-                if(!LockPos)
+                if (!LockPos)
                     MoveToTheTarget(TargetToAttack);
 
                 if (_cooldownTime.Elapsed.Milliseconds <= 0f)
@@ -116,17 +130,19 @@ namespace Assets.Scripts.NPC
         //APPLY MUSIC OF DYING
         private void Dying()
         {
-            Debug.Log("Object destroyed" + this);
+            _soundsManager.NPCEffectsSource.SetClip(_dyingClip);
+            _soundsManager.NPCEffectsSource.Play(0.1f, false);
+
             var deadBody = Instantiate(Resources.Load("Dead"), this.transform.position, this.transform.rotation);
-            DestroyObject(deadBody,0.5f);
-            Destroy(gameObject,0.2f);
+            DestroyObject(deadBody, 0.5f);
+            Destroy(gameObject, 0.2f);
         }
 
         //APPLY MUSIC OF MOVING NPC
         private void Move()
         {
-            var newX = transform.position.x + _directionX*Speed;
-            var newY = transform.position.y + _directionY*Speed;
+            var newX = transform.position.x + _directionX * Speed;
+            var newY = transform.position.y + _directionY * Speed;
 
             transform.position = new Vector2(newX, newY);
 
@@ -149,8 +165,8 @@ namespace Assets.Scripts.NPC
             }
             else
             {
-                float distCovered = (Time.time - _journeyTime)*Speed;
-                float fracJourney = distCovered/_journeyLength;
+                float distCovered = (Time.time - _journeyTime) * Speed;
+                float fracJourney = distCovered / _journeyLength;
                 transform.position = Vector3.LerpUnclamped(transform.position, target.transform.position, fracJourney);
             }
         }
@@ -187,7 +203,7 @@ namespace Assets.Scripts.NPC
         private void FireBullet(GameObject target)
         {
             GameObject projectile = Instantiate(PrefabOfProjectile, this.transform.position, this.transform.rotation) as GameObject;
-            if(projectile!=null)
+            if (projectile != null)
                 projectile.GetComponent<Bullet>().InitalizeBullet(target, ProjectileSpeed, npcInfo.Damage);
         }
 
@@ -229,14 +245,14 @@ namespace Assets.Scripts.NPC
                 Move();
                 return;
             }
-          
-            if(_directionY>0)
+
+            if (_directionY > 0)
                 FlipUp();
-            if(_directionX>0)
+            if (_directionX > 0)
                 FlipRight();
             if (_directionX < 0)
                 FlipLeft();
-            if(_directionY<0)
+            if (_directionY < 0)
                 FlipDown();
         }
 
@@ -259,7 +275,7 @@ namespace Assets.Scripts.NPC
             }
             else
             {
-                if(direct.x < 0)
+                if (direct.x < 0)
                 {
                     FlipRightMirror();
                 }
