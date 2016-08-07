@@ -1,109 +1,123 @@
-﻿using Assets.Scripts.Gameplay;
+﻿using System.Collections;
+using Assets.Scripts.Gameplay;
 using UnityEngine;
 
 namespace Assets.Scripts.Sounds
 {
-    public static class SoundManager
+    public class SoundManager : MonoBehaviour
     {
-        public static AudioClip PlayRoomIntroMusic(RoomSound soundComponentName)
+        public AudioSource RoomMusic;
+        public AudioSource CorridorMusic;
+
+        private bool _roomMusicFadeInRequested;
+        private bool _roomMusicFadeOutRequested;
+
+        void Start()
         {
-            return GetClip(GetClipPath(soundComponentName), GameplayServices.Constants.INTRO);
-        }
- 
-        public static AudioClip PlayDeadSound(Creatures character)
-        {
-            return GetClip(GetClipPath(character), GameplayServices.Constants.DEAD);
-        }
- 
-        public static AudioClip PlayHitSound(Creatures character)
-        {
-            return GetClip(GetClipPath(character), GameplayServices.Constants.HIT);
+            CorridorMusic.SetClip(SoundClipFetcher.GetRoomIntroMusic(RoomSound.NORMAL));
+            CorridorMusic.Play(0.1f, true);
         }
 
-        public static AudioClip PlayGetHitSound(Creatures character)
+        public void FadeInRoomMusic(float volume, float delayInSeconds)
         {
-            return GetClip(GetClipPath(character), GameplayServices.Constants.GET_HIT);
+            if (RoomMusic == null)
+                return;
+
+            _roomMusicFadeOutRequested = false;
+            _roomMusicFadeInRequested = true;
+            
+            StartCoroutine(FadeIn(RoomMusic, volume, delayInSeconds));
         }
 
-        public static AudioClip PlayFootStepsSound(Creatures character)
+        public void FadeInCorridorMusic(float volume, float delayInSeconds)
         {
-            return GetClip(GetClipPath(character), GameplayServices.Constants.FOOTSTEPS);
+            if (RoomMusic == null)
+                return;
+
+            StartCoroutine(FadeIn(CorridorMusic, volume, delayInSeconds));
         }
 
-        private static string GetClipPath(RoomSound soundComponentName)
+        public void FadeOutRoomMusic(bool stopAudioWhenMuted, float delayInSeconds)
         {
-            string path = null;
-            switch (soundComponentName)
+            if (RoomMusic == null)
+                return;
+
+            _roomMusicFadeInRequested = false;
+            _roomMusicFadeOutRequested = true;
+
+            StartCoroutine(FadeOut(RoomMusic, stopAudioWhenMuted, delayInSeconds));
+        }
+
+        public void FadeOutCorridorMusic(bool stopAudioWhenMuted, float delayInSeconds)
+        {
+            if (RoomMusic == null)
+                return;
+
+            StartCoroutine(FadeOut(CorridorMusic, stopAudioWhenMuted, delayInSeconds));
+        }
+
+        private IEnumerator FadeIn(AudioSource audioSource, float volume, float delayInSeconds)
+        {
+            if (audioSource.isPlaying)
+                yield break;
+
+            audioSource.Play(0, true);
+
+            var volumeIncrementPerStep = volume/(delayInSeconds*10);
+
+            while (audioSource.volume < volume)
             {
-                case RoomSound.NORMAL:
-                    path = GameplayServices.Constants.SOUNDS_PATH + GameplayServices.Constants.NORMAL;
-                    break;
+                if (_roomMusicFadeOutRequested)
+                {
+                    _roomMusicFadeOutRequested = false;
+                    yield break;
+                }
 
-                case RoomSound.POKEMON:
-                    path = GameplayServices.Constants.POKEMON_CLIPS_PATH + GameplayServices.Constants.POKEMON;
-                    break;
-
-                case RoomSound.BAY_WATCH:
-                    path = GameplayServices.Constants.BAY_WATCH_CLIPS_PATH + GameplayServices.Constants.BAY_WATCH;
-                    break;
-
-                case RoomSound.POWER_RANGERS:
-                    path = GameplayServices.Constants.POWER_RANGERS_CLIPS_PATH + GameplayServices.Constants.POWER_RANGERS;
-                    break;
-
-                case RoomSound.DISCO:
-                    path = GameplayServices.Constants.DISCO_CLIPS_PATH + GameplayServices.Constants.DISCO;
-                    break;
-
-                default:
-                    Debug.LogError("Unhandled SoundComponents parameter");
-                    break;
-
+                audioSource.volume = Mathf.Min(volume, audioSource.volume + volumeIncrementPerStep);
+                yield return new WaitForSeconds(0.1f);
             }
-            return path;
         }
-
-        private static string GetClipPath(Creatures boss)
+        
+        private IEnumerator FadeOut(AudioSource audioSource, bool stopAudioWhenMuted, float delayInSeconds)
         {
-            string path = null;
-            switch (boss)
+            if (!audioSource.isPlaying)
+                yield break;
+
+            var volumeDecrementPerStep = audioSource.volume / (delayInSeconds * 10);
+
+            while (audioSource.volume > 0)
             {
-                case Creatures.PLAYER:
-                    path = GameplayServices.Constants.PLAYER_CLIPS_PATH + GameplayServices.Constants.PLAYER;
-                    break;
+                if (_roomMusicFadeInRequested)
+                {
+                    _roomMusicFadeInRequested = false;
+                    yield break;
+                }
 
-                case Creatures.PIKACHU:
-                    path = GameplayServices.Constants.POKEMON_CLIPS_PATH + GameplayServices.Constants.PIKACHU + "/" + GameplayServices.Constants.PIKACHU;
-                    break;
-
-                case Creatures.PAMELA:
-                    path = GameplayServices.Constants.BAY_WATCH_CLIPS_PATH + GameplayServices.Constants.PAMELA + "/" + GameplayServices.Constants.PAMELA;
-                    break;
-
-                case Creatures.NORMAL1:
-                    path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.NORMAL1 + "/" + GameplayServices.Constants.NORMAL1;
-                    break;
-
-                case Creatures.MEDIUM1:
-                    path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.MEDIUM1 + "/" + GameplayServices.Constants.MEDIUM1;
-                    break;
-
-                case Creatures.HARD1:
-                    path = GameplayServices.Constants.STANDARD_CLIPS_PATH + GameplayServices.Constants.HARD1 + "/" + GameplayServices.Constants.HARD1;
-                    break;
-
-                default:
-                    Debug.LogError("Unhandled SoundComponents parameter");
-                    break;
-
+                audioSource.volume = Mathf.Max(0, audioSource.volume - volumeDecrementPerStep);
+                yield return new WaitForSeconds(0.1f);
             }
-            return path;
+
+            if (stopAudioWhenMuted)
+                audioSource.Stop();
+        }
+    }
+
+    public static class AudioSourceExtensions
+    {
+        public static void SetClip(this AudioSource audioSource, AudioClip clip)
+        {
+            if (audioSource != null)
+                audioSource.clip = clip;
         }
 
-        private static AudioClip GetClip(string clipPath, string clipKind)
+        public static void Play(this AudioSource audioSource, float volume, bool loop)
         {
-            clipPath += clipKind;
-            return Resources.Load<AudioClip>(clipPath);
+            if (audioSource == null) //|| audioSource.isPlaying)
+                return;
+
+            audioSource.loop = loop;
+            audioSource.volume = volume;
+            audioSource.Play();
         }
     }
 }
