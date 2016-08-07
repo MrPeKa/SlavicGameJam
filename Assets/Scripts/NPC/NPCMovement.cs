@@ -42,6 +42,10 @@ namespace Assets.Scripts.NPC
         private int _directionX;
         private int _directionY = 1;
         private bool _isChangingDirection;
+        private Rigidbody2D rigidbody;
+        private Vector2 currentDirrection;
+        private float last_x;
+        private float last_y;
         public bool IsFightingMelee;
 
         //Is all about travelling to the target.
@@ -63,6 +67,7 @@ namespace Assets.Scripts.NPC
             if (SelfAnimating)
             {
                 anim = GetComponent<Animator>();
+                rigidbody = GetComponent<Rigidbody2D>();
             }
 
             npcInfo = gameObject.GetComponent<NPCInfo>();
@@ -82,12 +87,19 @@ namespace Assets.Scripts.NPC
         }
 
         void Update()
-        {
+        { 
+            last_x = transform.position.x;
+            last_y = transform.position.y;
+
             if (SelfAnimating && !LockPos && hasIdle)
             {
-                anim.SetBool("IsMoving", false);
-                anim.SetFloat("LastMoveX", _directionX);
-                anim.SetFloat("LastMoveY", _directionY);
+                if ((Mathf.Abs(transform.position.x) - Mathf.Abs(last_x) == 0)
+                    && (Mathf.Abs(transform.position.y) - Mathf.Abs(last_y)) == 0)
+                {
+                    anim.SetBool("IsMoving", false);
+                    anim.SetFloat("LastMoveX", currentDirrection.x);
+                    anim.SetFloat("LastMoveY", currentDirrection.y);
+                }
             }
 
             if (!_isChangingDirection && !Targeting && !LockPos)
@@ -149,10 +161,41 @@ namespace Assets.Scripts.NPC
 
             if (SelfAnimating && !OnlyMirrorRotating)
             {
-                anim.SetFloat("MoveX", newX);
-                anim.SetFloat("MoveY", newY);
+                SetCurrentDirection(newX, newY);
+
                 anim.SetBool("IsMoving", true);
+                anim.SetFloat("MoveX", currentDirrection.x);
+                anim.SetFloat("MoveY", currentDirrection.y);
             }
+        }
+
+        private void SetCurrentDirection(float newX, float newY)
+        {
+                if (newX > last_x)
+                {
+                    currentDirrection.x = 1;
+                }
+                else if (newX < last_x)
+                {
+                    currentDirrection.x = -1;
+                }
+                else
+                {
+                    currentDirrection.x = 0;
+                }
+
+                if (newY < last_y)
+                {
+                    currentDirrection.y = -1;
+                }
+                else if (newY > last_y)
+                {
+                    currentDirrection.y = 1;
+                }
+                else
+                {
+                    currentDirrection.y = 0;
+                }
         }
 
         //APPLY MUSIC OF MOVING NPC

@@ -40,8 +40,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010074280860}
-  m_LocalRotation: {x: 0, y: 0, z: 0.55937153, w: 0.8289171}
-  m_LocalPosition: {x: -5.221399, y: -3.1588159, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.00000021861142, w: 1}
+  m_LocalPosition: {x: -27.250118, y: 0.8250041, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28e8de74e0019e46a99a59712a42c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 100
+  HealthPoints: 80
   Damage: 20
   IsMelee: 1
 --- !u!114 &114000014039201446
@@ -152,11 +152,16 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
-  RotatingOnlyInX: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  OnlyMirrorRotating: 0
+  StopBeforeShoot: 0
   SelfAnimating: 1
   npcInfo: {fileID: 114000011740145234}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
+  hasIdle: 1
 --- !u!212 &212000013057877458
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -186,7 +191,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300022, guid: d8139595408a5804d91db3aebeb12634, type: 3}
+  m_Sprite: {fileID: 21300040, guid: d8139595408a5804d91db3aebeb12634, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
