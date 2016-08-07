@@ -645,6 +645,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -1321,6 +1326,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -2200,6 +2210,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -2860,6 +2875,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -4864,6 +4884,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -7045,6 +7070,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -7326,6 +7356,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -7772,6 +7807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 481500454}
   CorridorsToDeactivate: {fileID: 1421028648}
   ActivateRoom: 1
@@ -11763,6 +11799,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -12720,6 +12761,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -13948,6 +13994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 481500454}
   CorridorsToDeactivate: {fileID: 1421028648}
   ActivateRoom: 0
@@ -14770,6 +14817,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -15885,6 +15937,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -16497,6 +16554,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -16793,6 +16855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 1421028648}
   CorridorsToDeactivate: {fileID: 481500454}
   ActivateRoom: 1
@@ -17226,6 +17289,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -18548,6 +18616,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -20755,6 +20828,11 @@ MonoBehaviour:
   FreeTraversing: 1
   TargetToAttack: {fileID: 0}
   Targeting: 0
+  LockPos: 0
+  ProjectileSpeed: 0.3
+  PrefabOfProjectile: {fileID: 0}
+  RotatingOnlyInX: 0
+  SelfAnimating: 0
   npcInfo: {fileID: 0}
   IsFightingMelee: 0
   CoolDownLimitAttact: 2
@@ -22012,6 +22090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1830687383}
+  NPCs: {fileID: 0}
   CorridorsToActivate: {fileID: 1421028648}
   CorridorsToDeactivate: {fileID: 481500454}
   ActivateRoom: 0
