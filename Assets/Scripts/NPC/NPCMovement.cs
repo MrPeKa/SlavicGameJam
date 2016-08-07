@@ -35,6 +35,9 @@ namespace Assets.Scripts.NPC
         private bool _isChangingDirection;
         public bool IsFightingMelee;
 
+        public bool Arrived;
+
+
         //Is all about travelling to the target.
         private float _journeyTime;
         private float _journeyLength;
@@ -42,12 +45,14 @@ namespace Assets.Scripts.NPC
         //Cooldown related with fighting
         private Stopwatch _cooldownTime;
         public float CoolDownLimitAttact = 2;
+        public DetectAngle activateAggresive;
 
         private SoundManager _soundsManager;
         public bool hasIdle = true;
 
         void Awake()
         {
+            activateAggresive = gameObject.GetComponentInChildren<DetectAngle>();
             _cooldownTime = new Stopwatch();
             _cooldownTime.Reset();
 
@@ -69,6 +74,11 @@ namespace Assets.Scripts.NPC
 
         void Update()
         {
+            if (activateAggresive!=null && activateAggresive.GoAttact)
+                FreeTraversing = false;
+            if (activateAggresive!=null && !activateAggresive.GoAttact)
+                FreeTraversing = true;
+
             if (SelfAnimating && !LockPos && hasIdle)
             {
                 anim.SetBool("IsMoving", false);
@@ -88,22 +98,23 @@ namespace Assets.Scripts.NPC
                 {
                     _cooldownTime.Reset();
                     _cooldownTime.Start();
-                    if (IsFightingMelee)
+                    if (Arrived && IsFightingMelee)
                     {
                         AttactMelee(TargetToAttack);
                     }
-                    else
+                    else if (!IsFightingMelee)
                     {
-                        if (StopBeforeShoot)
-                        {
-                            LockPos = true;
+                            if (StopBeforeShoot)
+                            {
+                                LockPos = true;
+                            }
+                            AttactRanged(TargetToAttack);
+                            if (StopBeforeShoot)
+                            {
+                                LockPos = false;
+                            }
                         }
-                        AttactRanged(TargetToAttack);
-                        if (StopBeforeShoot)
-                        {
-                            LockPos = false;
-                        }
-                    }
+ 
                 }
                 else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
                     _cooldownTime.Reset();
@@ -160,7 +171,7 @@ namespace Assets.Scripts.NPC
         {
             if (Targeting && other.CompareTag(GameplayServices.Tags.Player))
             {
-                IsFightingMelee = true;
+                Arrived = true;
             }
         }
 
@@ -168,7 +179,7 @@ namespace Assets.Scripts.NPC
         {
             if (Targeting && other.CompareTag(GameplayServices.Tags.Player))
             {
-                IsFightingMelee = false;
+                Arrived = false;
             }
         }
 
