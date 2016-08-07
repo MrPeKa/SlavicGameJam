@@ -8,8 +8,13 @@ namespace Assets.Scripts.NPC
         {
             if (other.CompareTag("npc"))
             {
-                other.gameObject.GetComponent<NPCMovement>().ChangeDirection();
+                NPCMovement npcMove = other.gameObject.GetComponent<NPCMovement>();
+                if (npcMove != null)
+                    npcMove.ChangeDirection();
+                else
+                    other.gameObject.GetComponent<NPCMovement1>().ChangeDirection();
             }
+
         }
     }
 }

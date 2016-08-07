@@ -53,6 +53,7 @@ namespace Assets.Scripts.NPC
         public float CoolDownLimitAttact = 2;
 
         private SoundManager _soundsManager;
+        public bool hasIdle = true;
 
         void Awake()
         {
@@ -82,7 +83,7 @@ namespace Assets.Scripts.NPC
 
         void Update()
         {
-            if (SelfAnimating && !LockPos)
+            if (SelfAnimating && !LockPos && hasIdle)
             {
                 anim.SetBool("IsMoving", false);
                 anim.SetFloat("LastMoveX", _directionX);
