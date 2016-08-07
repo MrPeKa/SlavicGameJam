@@ -49,7 +49,7 @@ namespace Assets.Scripts.Gameplay.Map
             if (Light.range > 0)
                 yield break;
 
-            _soundsManager.FadeInRoomMusic(0.15f, 10); // from 0 to 0.15 in 10s
+            _soundsManager.FadeInRoomMusic(0.09f, 10); // from 0 to 0.15 in 10s
             _soundsManager.FadeOutCorridorMusic(true, 0.5f);
 
             Light.range = 0;
