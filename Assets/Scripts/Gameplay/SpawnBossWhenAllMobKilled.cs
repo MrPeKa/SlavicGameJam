@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Scripts.NPC;
+using Assets.Scripts.Sounds;
 
 namespace Assets.Scripts.Gameplay
 {
@@ -9,10 +9,13 @@ namespace Assets.Scripts.Gameplay
         private int _mobCount;
         public GameObject BossModel;
         public GameObject Room;
+        private SoundManager _soundsManager;
+        public AudioClip SpawnClip;
 
         void Start()
         {
             StartCoroutine(CheckMobCount());
+            _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
         }
 
         private IEnumerator CheckMobCount()
@@ -32,8 +35,10 @@ namespace Assets.Scripts.Gameplay
 
         private void SpawnBoss()
         {
+            _soundsManager.NPCEffectsSource.SetClip(SpawnClip);
+            _soundsManager.NPCEffectsSource.Play(0.2f, false);
             var boss = Instantiate(BossModel);
-            boss.SetPosition(new Vector2(Room.transform.position.x, Room.transform.position.y));
+            boss.SetPosition(new Vector2(Room.transform.position.x + 2, Room.transform.position.y));
         }
     }
 }
