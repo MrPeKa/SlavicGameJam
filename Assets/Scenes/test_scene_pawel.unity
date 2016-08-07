@@ -8094,7 +8094,6 @@ Transform:
   m_Children:
   - {fileID: 142248681}
   - {fileID: 458499051}
-  - {fileID: 2120638266}
   - {fileID: 1631512371}
   m_Father: {fileID: 855645908}
   m_RootOrder: 0
@@ -18190,7 +18189,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 665539872}
+    m_TransformParent: {fileID: 1631512371}
     m_Modifications:
     - target: {fileID: 4000011593597222, guid: 96c4ee649fe02b840b9202e3245e4b82, type: 2}
       propertyPath: m_LocalPosition.x
@@ -18222,12 +18221,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011593597222, guid: 96c4ee649fe02b840b9202e3245e4b82, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 198000014060922010, guid: 96c4ee649fe02b840b9202e3245e4b82,
         type: 2}
       propertyPath: InitialModule.maxNumParticles
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 199000010651589222, guid: 96c4ee649fe02b840b9202e3245e4b82,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96c4ee649fe02b840b9202e3245e4b82, type: 2}
@@ -19710,8 +19714,9 @@ Transform:
   - {fileID: 794993006}
   - {fileID: 1126060856}
   - {fileID: 713629530}
+  - {fileID: 2120638266}
   m_Father: {fileID: 665539872}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1631866062
 GameObject:
   m_ObjectHideFlags: 0
