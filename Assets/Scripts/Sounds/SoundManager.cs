@@ -9,6 +9,7 @@ namespace Assets.Scripts.Sounds
         public AudioSource RoomMusic;
         public AudioSource CorridorMusic;
         public AudioSource PlayerAttackSource;
+        public AudioSource PlayerMoveSource;
 
         private bool _roomMusicFadeInRequested;
         private bool _roomMusicFadeOutRequested;

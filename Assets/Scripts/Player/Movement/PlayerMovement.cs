@@ -74,6 +74,9 @@ namespace Assets.Scripts.Player.Movement
             _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
             _lastAttack = DateTime.Now;
             _attackClip = SoundClipFetcher.HitSound(Creatures.PLAYER);
+            _moveClip = SoundClipFetcher.GetFootStepsSound(Creatures.PLAYER);
+            _soundsManager.PlayerMoveSource.SetClip(_moveClip);
+            _soundsManager.PlayerAttackSource.SetClip(_attackClip);
         }
 
         void Update()
@@ -84,6 +87,7 @@ namespace Assets.Scripts.Player.Movement
 
         private DateTime _lastAttack;
         private AudioClip _attackClip;
+        private AudioClip _moveClip;
 
         private float GetSpeedForAxis(string axisName)
         {
@@ -100,6 +104,8 @@ namespace Assets.Scripts.Player.Movement
 
         private void OnMove(float newXSpeed, float newYSpeed)
         {
+            _soundsManager.PlayerMoveSource.Play(1f, true);
+
             var lastVelocity = rb.velocity;
 
             if (lastVelocity.magnitude != 0)
@@ -114,8 +120,6 @@ namespace Assets.Scripts.Player.Movement
 
             Moving = (currentVelocity.magnitude != 0);
             rb.velocity = currentVelocity;
-
-
         }
                 
         private void HandleAttack()
@@ -143,9 +147,7 @@ namespace Assets.Scripts.Player.Movement
                 }
             }
 
-            _soundsManager.PlayerAttackSource.SetClip(_attackClip);
             _soundsManager.PlayerAttackSource.Play(0.2f, false);
-
             animator.SetTrigger(ANIM_PARAM_ATTACKING);
         }
 
