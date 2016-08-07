@@ -48,6 +48,9 @@ namespace Assets.Scripts.NPC
         private float last_y;
         public bool IsFightingMelee;
 
+        public bool Arrived;
+
+
         //Is all about travelling to the target.
         private float _journeyTime;
         private float _journeyLength;
@@ -55,12 +58,14 @@ namespace Assets.Scripts.NPC
         //Cooldown related with fighting
         private Stopwatch _cooldownTime;
         public float CoolDownLimitAttact = 2;
+        public DetectAngle activateAggresive;
 
         private SoundManager _soundsManager;
         public bool hasIdle = true;
 
         void Awake()
         {
+            activateAggresive = gameObject.GetComponentInChildren<DetectAngle>();
             _cooldownTime = new Stopwatch();
             _cooldownTime.Reset();
 
@@ -87,57 +92,64 @@ namespace Assets.Scripts.NPC
         }
 
         void Update()
-        { 
-            last_x = transform.position.x;
-            last_y = transform.position.y;
-
-            if (SelfAnimating && !LockPos && hasIdle)
+        {
+            if (activateAggresive != null && activateAggresive.GoAttact)
+                FreeTraversing = false;
+            if (activateAggresive != null && !activateAggresive.GoAttact)
+                FreeTraversing = true;
             {
-                if ((Mathf.Abs(transform.position.x) - Mathf.Abs(last_x) == 0)
-                    && (Mathf.Abs(transform.position.y) - Mathf.Abs(last_y)) == 0)
-                {
-                    anim.SetBool("IsMoving", false);
-                    anim.SetFloat("LastMoveX", currentDirrection.x);
-                    anim.SetFloat("LastMoveY", currentDirrection.y);
-                }
-            }
+                last_x = transform.position.x;
+                last_y = transform.position.y;
 
-            if (!_isChangingDirection && !Targeting && !LockPos)
-                Move();
-            if (!FreeTraversing)
-            {
-                CheckDirectionInTargeting();
-                if (!LockPos)
-                    MoveToTheTarget(TargetToAttack);
-
-                if (_cooldownTime.Elapsed.Milliseconds <= 0f)
+                if (SelfAnimating && !LockPos && hasIdle)
                 {
-                    _cooldownTime.Reset();
-                    _cooldownTime.Start();
-                    if (IsFightingMelee)
+                    if ((Mathf.Abs(transform.position.x) - Mathf.Abs(last_x) == 0)
+                        && (Mathf.Abs(transform.position.y) - Mathf.Abs(last_y)) == 0)
                     {
-                        AttactMelee(TargetToAttack);
-                    }
-                    else
-                    {
-                        if (StopBeforeShoot)
-                        {
-                            LockPos = true;
-                        }
-                        AttactRanged(TargetToAttack);
-                        if (StopBeforeShoot)
-                        {
-                            LockPos = false;
-                        }
+                        anim.SetBool("IsMoving", false);
+                        anim.SetFloat("LastMoveX", currentDirrection.x);
+                        anim.SetFloat("LastMoveY", currentDirrection.y);
                     }
                 }
-                else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
-                    _cooldownTime.Reset();
 
+                if (!_isChangingDirection && !Targeting && !LockPos)
+                    Move();
+                if (!FreeTraversing)
+                {
+                    CheckDirectionInTargeting();
+                    if (!LockPos)
+                        MoveToTheTarget(TargetToAttack);
+
+                    if (_cooldownTime.Elapsed.Milliseconds <= 0f)
+                    {
+                        _cooldownTime.Reset();
+                        _cooldownTime.Start();
+                        if (Arrived && IsFightingMelee)
+                        {
+                            AttactMelee(TargetToAttack);
+                        }
+                        else if (!IsFightingMelee)
+                        {
+                            if (StopBeforeShoot)
+                            {
+                                LockPos = true;
+                            }
+                            AttactRanged(TargetToAttack);
+                            if (StopBeforeShoot)
+                            {
+                                LockPos = false;
+                            }
+                        }
+
+                    }
+                    else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
+                        _cooldownTime.Reset();
+
+                }
+
+                if (npcInfo.HealthPoints <= 0)
+                    Dying();
             }
-
-            if (npcInfo.HealthPoints <= 0)
-                Dying();
         }
 
         //APPLY MUSIC OF DYING
@@ -219,7 +231,7 @@ namespace Assets.Scripts.NPC
         {
             if (Targeting && other.CompareTag(GameplayServices.Tags.Player))
             {
-                IsFightingMelee = true;
+                Arrived = true;
             }
         }
 
@@ -227,7 +239,7 @@ namespace Assets.Scripts.NPC
         {
             if (Targeting && other.CompareTag(GameplayServices.Tags.Player))
             {
-                IsFightingMelee = false;
+                Arrived = false;
             }
         }
 
