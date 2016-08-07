@@ -3,6 +3,8 @@ using UnityEngine;
 
 using Assets.Scripts.Player.PlayerManagement;
 using System;
+using Assets.Scripts.Gameplay;
+using Assets.Scripts.Sounds;
 
 namespace Assets.Scripts.Player.Movement
 {
@@ -31,6 +33,8 @@ namespace Assets.Scripts.Player.Movement
         private bool facingTop;
         private bool moving = false;
         private bool attacking = false;
+
+        private SoundManager _soundsManager;
 
         bool Moving
         {
@@ -65,6 +69,11 @@ namespace Assets.Scripts.Player.Movement
             playerInfo = GetComponent<PlayerInfo>();
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+
+
+            _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+            _lastAttack = DateTime.Now;
+            _attackClip = SoundClipFetcher.HitSound(Creatures.PLAYER);
         }
 
         void Update()
@@ -73,6 +82,8 @@ namespace Assets.Scripts.Player.Movement
             HandleAttack();
         }
 
+        private DateTime _lastAttack;
+        private AudioClip _attackClip;
 
         private float GetSpeedForAxis(string axisName)
         {
@@ -109,8 +120,11 @@ namespace Assets.Scripts.Player.Movement
                 
         private void HandleAttack()
         {
-            if (Input.GetButtonDown(ATTACK_BUTTON))
+            if (Input.GetButtonDown(ATTACK_BUTTON) && (DateTime.Now - _lastAttack).Seconds >= 1)
+            {
+                _lastAttack = DateTime.Now;
                 OnAttack();
+            }
         }
 
         private void OnAttack()
@@ -128,6 +142,9 @@ namespace Assets.Scripts.Player.Movement
                     }
                 }
             }
+
+            _soundsManager.PlayerAttackSource.SetClip(_attackClip);
+            _soundsManager.PlayerAttackSource.Play(0.2f, false);
 
             animator.SetTrigger(ANIM_PARAM_ATTACKING);
         }
