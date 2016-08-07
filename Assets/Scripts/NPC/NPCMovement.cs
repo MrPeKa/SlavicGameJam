@@ -18,7 +18,8 @@ namespace Assets.Scripts.NPC
         [SerializeField] public bool LockPos;
         [SerializeField] public float ProjectileSpeed = 0.3f;
         [SerializeField] public GameObject PrefabOfProjectile;
-        [SerializeField] public bool RotatingOnlyInX = false;
+        [SerializeField] public bool OnlyMirrorRotating = false;
+        [SerializeField] public bool StopBeforeShoot = false;
 
 
         public bool SelfAnimating;
@@ -75,17 +76,29 @@ namespace Assets.Scripts.NPC
                 if(!LockPos)
                     MoveToTheTarget(TargetToAttack);
 
-                    if (_cooldownTime.Elapsed.Milliseconds<=0f)
+                if (_cooldownTime.Elapsed.Milliseconds <= 0f)
+                {
+                    _cooldownTime.Reset();
+                    _cooldownTime.Start();
+                    if (IsFightingMelee)
                     {
-                        _cooldownTime.Reset();
-                        _cooldownTime.Start();
-                        if(IsFightingMelee)
-                            AttactMelee(TargetToAttack);
-                        else
-                            AttactRanged(TargetToAttack);
+                        AttactMelee(TargetToAttack);
                     }
-                    else if(_cooldownTime.Elapsed.Seconds>=CoolDownLimitAttact)
-                        _cooldownTime.Reset();
+                    else
+                    {
+                        if (StopBeforeShoot)
+                        {
+                            LockPos = true;
+                        }
+                        AttactRanged(TargetToAttack);
+                        if (StopBeforeShoot)
+                        {
+                            LockPos = false;
+                        }
+                    }
+                }
+                else if (_cooldownTime.Elapsed.Seconds >= CoolDownLimitAttact)
+                    _cooldownTime.Reset();
 
             }
 
@@ -108,7 +121,7 @@ namespace Assets.Scripts.NPC
 
             transform.position = new Vector2(newX, newY);
 
-            if (SelfAnimating)
+            if (SelfAnimating && !OnlyMirrorRotating)
             {
                 anim.SetFloat("MoveX", newX);
                 anim.SetFloat("MoveY", newY);
@@ -202,7 +215,7 @@ namespace Assets.Scripts.NPC
             _directionY = newDirectY;
             _isChangingDirection = false;
 
-            if (SelfAnimating)
+            if (SelfAnimating || OnlyMirrorRotating)
             {
                 Move();
                 return;
@@ -221,19 +234,30 @@ namespace Assets.Scripts.NPC
         private void CheckDirectionInTargeting()
         {
             var direct = transform.position - TargetToAttack.transform.position;
-            bool isXGreaterThanY = Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0;
-            if (isXGreaterThanY)
+            if (!OnlyMirrorRotating)
             {
-                if (direct.x > 0)
-                    FlipLeft();
-                else
-                    FlipRight();
-            }
-            if (!isXGreaterThanY && !RotatingOnlyInX) { 
-                if (direct.y < 0)
+                if (Mathf.Abs(direct.x) - Mathf.Abs(direct.y) > 0)
+                {
+                    if (direct.x > 0)
+                        FlipLeft();
+                    else
+                        FlipRight();
+                }
+                else if (direct.y < 0)
                     FlipUp();
                 else
                     FlipDown();
+            }
+            else
+            {
+                if(direct.x < 0)
+                {
+                    FlipRightMirror();
+                }
+                else if (direct.x > 0)
+                {
+                    FlipLeftMirror();
+                }
             }
 
 
@@ -257,6 +281,16 @@ namespace Assets.Scripts.NPC
         private void FlipDown()
         {
             transform.eulerAngles = new Vector3(0, 0, 270);
+        }
+
+        private void FlipLeftMirror()
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        private void FlipRightMirror()
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
     }
