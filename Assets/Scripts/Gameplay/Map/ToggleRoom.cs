@@ -16,10 +16,12 @@ namespace Assets.Scripts.Gameplay.Map
         public RoomSound RoomIntroMusic;
 
         private SoundManager _soundsManager;
+        private AudioClip _clip;
 
         void Start()
         {
             _soundsManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+            _clip = SoundClipFetcher.GetRoomIntroMusic(RoomIntroMusic);
         }
 
         void OnTriggerEnter2D(Collider2D other)
@@ -28,23 +30,13 @@ namespace Assets.Scripts.Gameplay.Map
             {
                 if (ActivateRoom)
                 {
-                    _soundsManager.RoomMusic.SetClip(SoundClipFetcher.GetRoomIntroMusic(RoomIntroMusic));
+                    _soundsManager.RoomMusic.SetClip(_clip);
                     StartCoroutine(DisplayRoom());
-                    //                    StartCoroutine(PlayRoomMusic());
                 }
                 else
                     StartCoroutine(HideRoom());
             }
         }
-
-        //        private IEnumerator PlayRoomMusic()
-        //        {
-        //            if (Light.range > 0)
-        //                yield break;
-        //
-        //            _soundsManager.FadeInRoomMusic(0.15f, 10); // from 0 to 0.15 in 10s
-        //            _soundsManager.FadeOutCorridorMusic(true, 0.2f);
-        //        }
 
         private IEnumerator DisplayRoom()
         {
