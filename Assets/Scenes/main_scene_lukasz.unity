@@ -2338,6 +2338,7 @@ MonoBehaviour:
   CorridorMusic: {fileID: 167167604}
   PlayerAttackSource: {fileID: 167167608}
   PlayerMoveSource: {fileID: 167167609}
+  NPCEffectsSource: {fileID: 0}
 --- !u!4 &167167607
 Transform:
   m_ObjectHideFlags: 0
@@ -14610,6 +14611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossModel: {fileID: 1000012514378976, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
   Room: {fileID: 1509914013}
+  SpawnClip: {fileID: 0}
 --- !u!114 &1235635476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15870,6 +15872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossModel: {fileID: 1000012514378976, guid: ba1b0c65b3abb66498402a2a83b38019, type: 2}
   Room: {fileID: 1830687383}
+  SpawnClip: {fileID: 0}
 --- !u!4 &1331869528 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013663411188, guid: 1cb253fbc85350441864eff21642fdc9,
